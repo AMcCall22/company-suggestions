@@ -1,39 +1,104 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Alison McCallum - Softward Engineer Companies
 
-Welcome USER_NAME,
+#### Milestone 3 project - Data Centric Development 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+#### Mock Up images
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+#### User Stories
 
-`python3 -m http.server`
+#### Wireframes
 
-A blue button should appear to click: *Make Public*,
+Link to [Wireframes](/Wireframes/AMc_Profile_Wireframes.pdf)
 
-Another blue button should appear to click: *Open Browser*.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Features
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+**Navbar/Header**
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+**Section 1**
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+**Section 2**
 
---------
 
-Happy coding!
+**Section 3**
+
+
+## Technologies Used
+
+- HTML
+- CSS
+- Javascript (purely for modal button)
+- Bootstrap 4
+- Balsamiq
+- Github/Gitpod
+- Font Awesome
+- Google Fonts
+- Unicorn Revealer (https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln)
+
+
+## Testing
+
+#### **Functionality**
+
+##### **Browser compatibility**
+
+Test description and desired outcome -
+
+ *Ensure that the site loads correctly on each of the following web browsers:*
+
+- *Chrome - 
+- *Edge - 
+- *Firefox - 
+- *Safari - 
+
+##### Code Validation
+
+- [W3C Markup Validation](https://validator.w3.org/) -  
+- [W3C CSS validation](https://jigsaw.w3.org/css-validator/)  
+
+
+
+#### **Reach (responsiveness)**
+
+Test description and desired outcome -
+
+Ensure that the site is responsive and loads correctly on each screen size using the chrome developer tools:
+
+- *Small devices - 
+- *Medium devices - 
+- *Large devices - 
+- *x-Large devices - 
+
+
+### Issues faced and resolved
+
+
+
+
+## Deployment
+
+The GitHub repository for this site is located [here](https://github.com/)
+
+
+## Credits
+
+### Content
+
+### Media
+
+### Acknowledgements
+
+
+------
+
+Disclaimer
+
+This site is currently for educational and practical use 
