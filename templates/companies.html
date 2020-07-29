@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Suggestions</title>
+</head>
+<body>
+    {% for company in add_company %}
+        {{company.company_name}}<br>
+        {{company.sector}}<br>
+        {{company.description}}<br>
+        {{company.url}}<br>
+        {{company.remote}}<br>
+        {{company.positions}}<br>
+    {% endfor %}
+</body>
+</html>
