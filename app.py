@@ -24,6 +24,11 @@ def add_company():
     return render_template("companies.html", add_company=company)
 
 
+@app.route("/add_business")
+def add_business():
+    return render_template("add_company.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

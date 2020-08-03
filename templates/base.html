@@ -24,6 +24,29 @@
     <title>Company Suggestions</title>
   </head>
   <body>
+    <!-- Dropdown Structure -->
+    <header>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Company</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Agency</a></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper cyan darken-3">
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Company List</a></li>
+            <li>
+              <a class="dropdown-trigger" href="#" data-target="dropdown1"
+                >Search</a
+              >
+            </li>
+            <li><a href="add_company.html">Add Company</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     {% block content %} {% endblock %}
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
