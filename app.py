@@ -26,7 +26,7 @@ def add_company():
 
 @app.route("/add_business")
 def add_business():
-    return render_template("add_company.html")
+    return render_template("add_business.html")
 
 
 if __name__ == "__main__":
