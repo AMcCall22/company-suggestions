@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>Add Company</h1>
+<h2 class="center-align" id="heading">Add Company</h2>
 <div class="row">
   <form class="col s12">
     <div class="row">
@@ -29,8 +29,13 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input type="text" data-length="10" />
-        <label for="input_text">Remote</label>
+        <select>
+      <option value="" disabled selected>Remote Working</option>
+      <option value="1">Yes</option>
+      <option value="2">No</option>
+      <option value="3">Sometimes</option>
+    </select>
+        
       </div>
     </div>
     <div class="row">
