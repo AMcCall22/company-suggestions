@@ -24,9 +24,11 @@ def add_company():
     return render_template("companies.html", add_company=company)
 
 
+# Connects to company_type collection in MongoDB for dropdown options
 @app.route("/add_business")
 def add_business():
-    return render_template("add_business.html")
+    company_type = mongo.db.company_type.find()
+    return render_template("add_business.html", company_type=company_type)
 
 
 if __name__ == "__main__":
