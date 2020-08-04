@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/add_company")
 def add_company():
-    company = mongo.db.add_company.find()
+    company = mongo.db.companies.find()
     return render_template("companies.html", add_company=company)
 
 
