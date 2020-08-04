@@ -1,14 +1,19 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %} {% for company in add_company %}
 
-<!-- Carousel of companies -->
-<div class="carousel">
-  {% for company in add_company %}
-  <a class="carousel-item" href="{{ company.url }}">
-    <h1>{{ company.company_name }}</h1>
-    <p>{{ company.description }}</p>
-    <p>Remote Positions: {{ company.remote }}</p>
-    <p>Level of Positions: {{ company.positions }}</p>
-  </a>
+<div class="row card-container">
+  <div class="col s3">
+    <div class="card small blue-grey darken-1">
+      <div class="card-content white-text">
+        <h3>{{ company.company_name }}</h3>
+        <p>{{ company.description }}</p>
+        <p>Remote Positions: {{ company.remote }}</p>
+        <p>Level of Positions: {{ company.positions }}</p>
+      </div>
+      <div class="card-action">
+        <a href="{{ company.url }}">Website</a>
+      </div>
+    </div>
+  </div>
   {% endfor %}
 </div>
 
