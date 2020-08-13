@@ -16,7 +16,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# Displays all companies on home page
 @app.route("/")
 @app.route("/add_company")
 def add_company():

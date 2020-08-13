@@ -1,70 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-      crossorigin="anonymous"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-      type="text/css"
-    />
-    {% block styles %} {% endblock %}
-    <title>Company Suggestions</title>
-  </head>
-  <body>
-    <!-- Dropdown Structure -->
-    <header>
-      <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Company</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">Agency</a></li>
-      </ul>
-      <nav>
-        <div class="nav-wrapper cyan darken-3">
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Company List</a></li>
-            <li>
-              <a class="dropdown-trigger" href="#" data-target="dropdown1"
-                >Search</a
-              >
-            </li>
-            <li><a href="{{ url_for('add_business') }}">Add Company</a></li>
-            <li><a href="#">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    {% block content %} {% endblock %}
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
-      integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script>
-      $(document).ready(function () {
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+		crossorigin="anonymous" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		type="text/css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+	{% block styles %} {% endblock %}
+	<title>Company Suggestions</title>
+</head>
+
+<body>
+	<!-- Dropdown Structure -->
+	<header>
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="#!">Company</a></li>
+			<li class="divider"></li>
+			<li><a href="#!">Agency</a></li>
+		</ul>
+		<nav>
+			<div class="nav-wrapper cyan darken-3">
+				<ul class="right hide-on-med-and-down">
+					<li><a href="{{ url_for('add_company') }}">Home</a></li>
+					<li><a href="#">Company List</a></li>
+					<li>
+						<a class="dropdown-trigger" href="#" data-target="dropdown1">Search</a>
+					</li>
+					<li><a href="{{ url_for('add_business') }}">Add Company</a></li>
+					<li><a href="#">Login</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	{% block content %} {% endblock %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+		integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
+		crossorigin="anonymous"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+	<script>
+		$(document).ready(function () {
         $(".carousel").carousel();
       });
-    </script>
-    {% block scripts %} {% endblock %}
-  </body>
+	</script>
+	{% block scripts %} {% endblock %}
+</body>
+
 </html>
