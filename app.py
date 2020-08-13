@@ -25,8 +25,8 @@ def show_company():
 
 
 # Connects to company_type collection in MongoDB for dropdown options
-@app.route("/add_business", methods=["GET", "POST"])
-def add_business():
+@app.route("/add_company", methods=["GET", "POST"])
+def add_company():
     if request.method == "POST":
         company = {
             "company_type": request.form.get("company_type"),
@@ -39,7 +39,7 @@ def add_business():
         }
         mongo.db.companies.insert_one(company)
     company_type = mongo.db.company_type.find()
-    return render_template("add_business.html", company_type=company_type)
+    return render_template("add_company.html", company_type=company_type)
 
 
 if __name__ == "__main__":
