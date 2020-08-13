@@ -18,10 +18,10 @@ mongo = PyMongo(app)
 
 # Displays all companies on home page
 @app.route("/")
-@app.route("/add_company")
-def add_company():
+@app.route("/show_company")
+def show_company():
     company = mongo.db.companies.find()
-    return render_template("companies.html", add_company=company)
+    return render_template("companies.html", show_company=company)
 
 
 # Connects to company_type collection in MongoDB for dropdown options
