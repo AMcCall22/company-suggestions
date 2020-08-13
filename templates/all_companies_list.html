@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %} {% for company in list_company %}
+
+<ul class="collection">
+	<li class="collection-item avatar">
+
+		<span class="title">{{ company.company_name }}</span>
+		<p>Remote Positions: {{ company.remote }}</p>
+		<p>Level of Positions: {{ company.positions }}</p>
+		<a href="{{ company.url }}">Website</a>
+	</li>
+
+</ul>
+{% endfor %}
+
+
+{% endblock %}
