@@ -51,6 +51,13 @@ def add_company():
     return render_template("add_company.html", company_type=company_type)
 
 
+@app.route("/edit_company/<company_id>", methods=["GET", "POST"])
+def edit_company(company_id):
+    company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
+    company = mongo.db.companies.find().sort("_id", -1).limit(4)
+    return render_template("edit_company.html", company=company, show_company=company)
+
+
 # Search all companies and provide view of results
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():

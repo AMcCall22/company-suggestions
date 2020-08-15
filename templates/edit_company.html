@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% block content %}
+
+<h2 class="center-align" id="heading">Edit Company</h2>
+
+<div class="row">
+  <form
+    class="col s6 form-style offset-s3"
+    method="POST"
+    action="{{url_for('edit_company', company_id=company._id) }}"
+  >
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="company_type" name="company_type" class="validate" required>
+          <option value="" disabled selected>Change company type</option>
+          {% for company in company_type %}
+          <option value="{{ company.company_type }}"
+            >{{ company.company_type }}</option
+          >
+          {% endfor %}
+        </select>
+        <label for="company_type">Company Type</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="company_name"
+          name="company_name"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="company_name">Company Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="sector"
+          name="sector"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="sector">Sector</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="description"
+          name="description"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="url"
+          name="url"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="url">Website</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select id="remote" name="remote">
+          <option value="" disabled selected>Remote Working</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Sometimes">Sometimes</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select
+          id="level_of_positions
+"
+          name="level_of_positions"
+        >
+          <option value="" disabled selected>Level of Opportunities</option>
+          <option value="Junior">Junior</option>
+          <option value="Mid">Mid</option>
+          <option value="Senior">Senior</option>
+          <option value="Various">Various</option>
+        </select>
+      </div>
+    </div>
+    <div class="button-style">
+      <button class="btn waves-effect waves-light" type="submit">
+        Edit Company
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
