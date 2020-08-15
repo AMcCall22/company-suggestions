@@ -5,7 +5,7 @@
   <form class="col s6 form-style offset-s3" method="POST" action="{{ url_for('search_company') }}">
     <div class="row">
       <div class="input-field col s12">
-         <textarea name="company_name_query" id="company_name_query" class="materialize-textarea validate" type="text"></textarea>
+         <input type="text" name="company_name_query" id="company_name_query" class="validate" method="POST">
             <label for="company_name_query">Search Company Name</label>
       </div>
     </div>

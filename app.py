@@ -17,7 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Displays all companies on home page
+# Displays 4 most recently added companies on home page
 @app.route("/")
 @app.route("/show_company")
 def show_company():
@@ -55,8 +55,7 @@ def add_company():
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
     query = request.form.get("company_name_query")
-    company = mongo.db.companies.find({"$text":
-                                      {"$search": query}})
+    company = mongo.db.companies.find({"$text": {"$search": query}})
     return render_template("all_companies_list.html", list_company=company)
 
 
