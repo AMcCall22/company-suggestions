@@ -59,6 +59,12 @@ def search_company():
     return render_template("all_companies_list.html", list_company=company)
 
 
+@app.route("/delete_company")
+def delete_company():
+    mongo.db.companies.remove()
+    return redirect(url_for('list_company'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

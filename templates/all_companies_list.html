@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block content %} {% for company in list_company %}
 
-<ul class="collection">
+<div class="row">
+<ul class="collection col 9">
 	<li class="collection-item avatar">
 
 		<span class="title">{{ company.company_name }}</span>
@@ -10,6 +11,11 @@
 	</li>
 
 </ul>
+<div class="col3">
+<a href = "" class="waves-effect waves-light btn-small">Edit</a>
+<a href = "" class="waves-effect waves-light btn-small">Delete</a>
+</div>
+</div>
 {% endfor %}
 
 
