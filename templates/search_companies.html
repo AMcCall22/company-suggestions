@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %} 
+
+<h2 class="center-align" id="heading">Search Company</h2>
+<div class="row">
+  <form class="col s6 form-style offset-s3" method="POST" action="{{ url_for('search_company') }}">
+    <div class="row">
+      <div class="input-field col s12">
+         <textarea name="company_name_query" id="company_name_query" class="materialize-textarea validate" type="text"></textarea>
+            <label for="company_name_query">Search Company Name</label>
+      </div>
+    </div>
+    <div class="button-style">
+      <button class="btn waves-effect waves-light" type="submit">
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

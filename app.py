@@ -21,11 +21,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/show_company")
 def show_company():
-    company = mongo.db.companies.find()
+    company = mongo.db.companies.find().sort("_id", -1)
     return render_template("companies.html", show_company=company)
     return render_template("all_companies.list.html", show_company=company)
 
 
+# Display all companies as a list view
 @app.route("/list_company")
 def list_company():
     company = mongo.db.companies.find()
@@ -50,22 +51,13 @@ def add_company():
     return render_template("add_company.html", company_type=company_type)
 
 
-# Search all companies and provide view 
-@app.route("/search_company", methods=["GET"])
+# Search all companies and provide view of results
+@app.route("/search_company", methods=["GET", "POST"])
 def search_company():
-    if request.method == "POST":
-        company = {
-            "company_type": request.form.get("company_type"),
-            "company_name": request.form.get("company_name"),
-            "sector": request.form.get("sector"),
-            "description": request.form.get("description"),
-            "url": request.form.get("url"),
-            "remote": request.form.get("remote"),
-            "level_of_positions": request.form.get("level_of_positions"),
-        }
-        mongo.db.companies.insert_one(company)
-    company_type = mongo.db.company_type.find()
-    return render_template("add_company.html", company_type=company_type)
+    query = request.form.get("company_name_query")
+    company = mongo.db.companies.find({"$text":
+                                      {"$search": query}})
+    return render_template("all_companies_list.html", list_company=company)
 
 
 if __name__ == "__main__":
