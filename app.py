@@ -74,7 +74,11 @@ def edit_company(company_id):
 # Search all companies and provide view of results
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
-    query = request.form.get("company_name_query")
+    query = request.args.get("company_name_query")
+    if query == None:
+        return render_template("search_companies.html")
+    else:
+        query = request.form.get("company_name_query")
     company = mongo.db.companies.find({"$text": {"$search": query}})
     return render_template("all_companies_list.html", list_company=company)
 

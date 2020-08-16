@@ -2,7 +2,7 @@
 
 <h2 class="center-align" id="heading">Search Company</h2>
 <div class="row">
-  <form class="col s6 form-style offset-s3" method="POST" action="{{ url_for('search_company') }}">
+  <form class="col s6 form-style offset-s3" method="GET" action="{{ url_for('search_company') }}">
     <div class="row">
       <div class="input-field col s12">
          <input type="text" name="company_name_query" id="company_name_query" class="validate" method="POST">
