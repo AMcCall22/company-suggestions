@@ -11,8 +11,8 @@
       <div class="input-field col s12">
         <select id="company_type" name="company_type" class="validate" required>
           <option value="" disabled>Change company type</option>
-          {% for company in company_type %} {% if company.company_type ==
-          company.company_type %}
+          {% for company in company_type %} 
+            {% if company.company_type == company.company_type %}
           <option value="{{ company.company_type }}" selected
             >{{ company.company_type }}</option
           >
@@ -47,7 +47,9 @@
           name="sector"
           class="materialize-textarea validate"
           required
-        >{{ company.sector }}</textarea>
+        >
+{{ company.sector }}</textarea
+        >
         <label for="sector">Sector</label>
       </div>
     </div>
@@ -58,7 +60,10 @@
           id="description"
           name="description"
           class="materialize-textarea validate"
-          required>{{ company.description }}</textarea>
+          required
+        >
+{{ company.description }}</textarea
+        >
         <label for="description">Description</label>
       </div>
     </div>
@@ -70,7 +75,9 @@
           name="url"
           class="materialize-textarea validate"
           required
-        >{{ company.url }}</textarea>
+        >
+{{ company.url }}</textarea
+        >
         <label for="url">Website</label>
       </div>
     </div>
@@ -78,7 +85,7 @@
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote">
-          <option value="" disabled selected>Remote Working</option>
+          <option  value="{{ company.remote }}" disabled>Remote Working</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
           <option value="Sometimes">Sometimes</option>
@@ -93,7 +100,7 @@
 "
           name="level_of_positions"
         >
-          <option value="" disabled selected>Level of Opportunities</option>
+          <option value="{{ company.level_of_positions }}" disabled>Level of Opportunities</option>
           <option value="Junior">Junior</option>
           <option value="Mid">Mid</option>
           <option value="Senior">Senior</option>
