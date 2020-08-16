@@ -79,9 +79,9 @@ def search_company():
     return render_template("all_companies_list.html", list_company=company)
 
 
-@app.route("/delete_company")
-def delete_company():
-    mongo.db.companies.remove()
+@app.route("/delete_company/<company_id>")
+def delete_company(company_id):
+    mongo.db.companies.remove({"_id": ObjectId(company_id)})
     return redirect(url_for('list_company'))
 
 
