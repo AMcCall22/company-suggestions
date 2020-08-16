@@ -1,7 +1,5 @@
 {% extends "base.html" %} {% block content %}
-
 <h2 class="center-align" id="heading">Edit Company</h2>
-
 <div class="row">
   <form
     class="col s6 form-style offset-s3"
@@ -13,9 +11,11 @@
         <select id="company_type" name="company_type" class="validate" required>
           <option value="" disabled selected>Change company type</option>
           {% for company in company_type %}
-          <option value="{{ company.company_type }}"
-            >{{ company.company_type }}</option
-          >
+            {% if company.company_type == company.company_type %}
+                <option value="{{ company.company_type }}" selected>{{ company.company_type }}</option>
+            {% else %}
+                <option value="{{ company.company_type }}">{{ company.company_type }}</option>
+            {% endif %}
           {% endfor %}
         </select>
         <label for="company_type">Company Type</label>
