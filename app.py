@@ -53,6 +53,19 @@ def add_company():
 
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
 def edit_company(company_id):
+
+    if request.method == "POST":
+        submit_company = {
+            "company_type": request.form.get("company_type"),
+            "company_name": request.form.get("company_name"),
+            "sector": request.form.get("sector"),
+            "description": request.form.get("description"),
+            "url": request.form.get("url"),
+            "remote": request.form.get("remote"),
+            "level_of_positions": request.form.get("level_of_positions"),
+        }
+        mongo.db.companies.update({"_id": ObjectId(company_id)}, submit_company)
+
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
     company_type = mongo.db.company_type.find()
     return render_template("edit_company.html", company=company, company_type=company_type)
