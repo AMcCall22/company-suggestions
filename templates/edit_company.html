@@ -1,15 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <h2 class="center-align" id="heading">Edit Company</h2>
 <div class="row">
-  <form
-    class="col s6 form-style offset-s3"
-    method="POST"
-    action="{{url_for('edit_company', company_id=company._id) }}"
-  >
-    <div class="row">
+  <form class="col s6 form-style offset-s3" method="POST" action="{{url_for('edit_company', company_id=company._id) }}">
+<!--company type -->    
+<div class="row">
       <div class="input-field col s12">
         <select id="company_type" name="company_type" class="validate" required>
-          <option value="" disabled selected>Change company type</option>
+          <option value="" disabled>Change company type</option>
           {% for company in company_type %}
             {% if company.company_type == company.company_type %}
                 <option value="{{ company.company_type }}" selected>{{ company.company_type }}</option>
@@ -21,6 +18,7 @@
         <label for="company_type">Company Type</label>
       </div>
     </div>
+<!--company name --> 
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -32,6 +30,7 @@
         <label for="company_name">Company Name</label>
       </div>
     </div>
+<!--company sector --> 
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -43,6 +42,7 @@
         <label for="sector">Sector</label>
       </div>
     </div>
+<!--company description --> 
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -54,6 +54,7 @@
         <label for="description">Description</label>
       </div>
     </div>
+<!--company website --> 
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -65,6 +66,7 @@
         <label for="url">Website</label>
       </div>
     </div>
+<!-- remote working options --> 
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote">
@@ -75,6 +77,7 @@
         </select>
       </div>
     </div>
+<!-- level of job opportunities available --> 
     <div class="row">
       <div class="input-field col s12">
         <select
