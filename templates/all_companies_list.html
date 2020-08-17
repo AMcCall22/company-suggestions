@@ -23,19 +23,4 @@
 
 {% endfor %}
 
-<h2 class="center-align" id="heading">Search Company</h2>
-<div class="row">
-  <form action="{{ url_for('search_company') }}" class="col s6 form-style offset-s3" method="POST" >
-    <div class="row">
-      <div class="input-field col s12">
-        <input type="text" name="company_query" id="company_query" class="validate" required/>
-        <label for="company_query">Search</label>
-      </div>
-        <div class="button-style">
-            <button class="btn waves-effect waves-light" type="submit">Search</button>
-        </div>
-    </div>
-  </form>
-</div>
-
 {% endblock %}
