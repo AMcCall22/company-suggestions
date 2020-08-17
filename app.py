@@ -51,6 +51,18 @@ def add_company():
     return render_template("add_company.html", company_type=company_type)
 
 
+# Search all companies and provide view of results
+@app.route("/search_company", methods=["GET", "POST"])
+def search_company():
+    query = request.form.get("company_query")
+    print(query)
+    if query is None:
+        return render_template("search_companies.html")
+    else:
+        company = mongo.db.companies.find({"$text": {"$search": query}})
+    return render_template("all_companies_list.html", list_company=company)
+
+
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
 def edit_company(company_id):
 
@@ -69,18 +81,6 @@ def edit_company(company_id):
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
     company_type = mongo.db.company_type.find()
     return render_template("edit_company.html", company=company, company_type=company_type)
-
-
-# Search all companies and provide view of results
-@app.route("/search_company", methods=["GET", "POST"])
-def search_company():
-    query = request.args.get("company_name_query")
-    if query == None:
-        return render_template("search_companies.html")
-    else:
-        query = request.form.get("company_name_query")
-    company = mongo.db.companies.find({"$text": {"$search": query}})
-    return render_template("all_companies_list.html", list_company=company)
 
 
 @app.route("/delete_company/<company_id>")

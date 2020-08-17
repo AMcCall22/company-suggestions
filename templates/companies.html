@@ -1,21 +1,22 @@
-{% extends "base.html" %} {% block content %} {% for company in show_company %}
+{% extends "base.html" %} {% block content %} {% for company in show_company %}
 
-<div class="row card-container">
+<div class="row">
   <div class="col s3">
-    <div class="card small blue-grey darken-1">
-      <div class="card-content white-text">
-        <h3>{{ company.company_name }}</h3>
-        <p>{{ company.description }}</p>
-        <p>{{ company.sector }}</p>
-        <p>Remote Positions: {{ company.remote }}</p>
-        <p>Level of Positions: {{ company.level_of_positions }}</p>
+    <div class="card small">
+      <div class="card-content">
+        <h3>{{ company.company_name }}</h3>
+        <p>{{ company.description }}</p>
+        <p>{{ company.sector }}</p>
+        <p>Remote Positions: {{ company.remote }}</p>
+        <p>Level of Positions: {{ company.level_of_positions }}</p>
       </div>
       <div class="card-action">
-        <a href="{{ company.url }}">Website</a>
+        <a href="{{ company.url }}">Website</a>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
+
 
 {% endblock %}
