@@ -2,15 +2,72 @@
 
 <h2 class="center-align" id="heading">Search Company</h2>
 <div class="row">
-  <form action="{{ url_for('search_company') }}" class="col s6 form-style offset-s3" method="POST" >
+  <form
+    action="{{ url_for('search_company') }}"
+    class="col s6 form-style offset-s3"
+    method="POST"
+  >
     <div class="row">
       <div class="input-field col s12">
-        <input type="text" name="company_query" id="company_query" class="validate" required/>
+        <input
+          type="text"
+          name="company_query"
+          id="company_query"
+          class="validate"
+          required
+        />
+
         <label for="company_query">Search</label>
       </div>
-        <div class="button-style">
-            <button class="btn waves-effect waves-light" type="submit">Search</button>
+      <div class="row">
+        
+        <div class="col s6">
+<h6 class="filter-heading">Remote Working</h6>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Yes</span>
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>No</span>
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Sometimes</span>
+          </label>
         </div>
+        <div class="col s6">
+          <h6 class="filter-heading">Level of Opportunities</h6>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Junior</span>
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Mid</span>
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Senior</span>
+          </label>
+          <br />
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Various</span>
+          </label>
+        </div>
+      </div>
+
+
+      <div class="button-style">
+        <button class="btn waves-effect waves-light" type="submit">
+          Search
+        </button>
+      </div>
     </div>
   </form>
 </div>

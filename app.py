@@ -55,12 +55,17 @@ def add_company():
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
     query = request.form.get("company_query")
-    print(query)
     if query is None:
         return render_template("search_companies.html")
     else:
         company = mongo.db.companies.find({"$text": {"$search": query}})
     return render_template("all_companies_list.html", list_company=company)
+
+
+@app.route("/filters", methods=["GET", "POST"])
+def filters():
+    return render_template("all_companies_list.html")
+
 
 
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
