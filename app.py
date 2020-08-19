@@ -54,18 +54,25 @@ def add_company():
 # Search all companies and provide view of results
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
-    query = request.form.get("company_query")
-    if query is None:
+    query1 = request.form.get("company_query")
+    print(query1)
+    if query1 is None:
         return render_template("search_companies.html")
     else:
-        company = mongo.db.companies.find({"$text": {"$search": query}})
+        company = mongo.db.companies.find({"$text": {"$search": query1}})
+    return render_template("all_companies_list.html", list_company=company)
+    query2 = request.form["remote_option"]
+    print(query2)
+    company = mongo.db.companies.find({"remote": query2})
     return render_template("all_companies_list.html", list_company=company)
 
 
-@app.route("/filters", methods=["GET", "POST"])
-def filters():
-    return render_template("all_companies_list.html")
-
+# @app.route("/filters", methods=["GET", "POST"])
+# def filters():
+    # query = request.form["remote_option"]
+    # print(query)
+    # company = mongo.db.companies.find({"remote": query})
+    # return render_template("all_companies_list.html", list_company=company)
 
 
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
