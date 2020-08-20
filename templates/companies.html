@@ -1,15 +1,15 @@
-{% extends "base.html" %} {% block content %} 
-<div class="row">
-<div class="website_info">
-<p>This website allows users to input companies and agencies that advertise software engineering roles.
-<br>
-The purpose is to centrally collate a number of recommended companies, for own use and to share with others.
-<br> 
-New companies can be added, edited and deleted by users. </p>
-</div>
-<div class="website_background">
-
-</div>
+{% extends "base.html" %} {% block content %}
+<div class="row info">
+  <div class="col m4 website_background"></div>
+  <div class="col m4 website_info">
+    <span
+      >A dynamic collection of current software engineering companies offering
+      suitable roles from junior through to senior level.</span
+    >
+    <span>Browse the list to find roles suitable for yourself or others.</span>
+    <span> Register to add, edit and delete companies to the collection.</span>
+  </div>
+  <div class="col m4 website_background"></div>
 </div>
 
 {% for company in show_company %}
@@ -30,7 +30,5 @@ New companies can be added, edited and deleted by users. </p>
   </div>
   {% endfor %}
 </div>
-
-
 
 {% endblock %}
