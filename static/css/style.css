@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
 #heading{
     color: #c11500;
 }
@@ -25,14 +27,12 @@
 .website_info{
     padding-top: 2rem;
     padding-bottom: 2rem;
-    
-    color: white;
+    font-family: 'Dosis', sans-serif;
+    color: #666666;
     height:20rem;
     margin: auto;
     font-size: 1.5rem;
-    background-color: 	#28b0c6; 
-
-    
+    text-align: center;
 }
 
 .website_background{
@@ -48,3 +48,6 @@
 .nav-wrapper{
     background-color:	#c63e28;
 }
+
+
+
