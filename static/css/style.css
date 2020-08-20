@@ -18,12 +18,29 @@
 
 .card {
     width: 75%;
+    
     display: inline-block;
-    vertical-align: middle;
+    
 }
 
 .website_info{
-    border: black solid 1px;
-    margin: 10rem;
+    
+    margin: 0;
     text-align: center;
+    color: black;
+    height: 15rem;
+}
+
+.website_background{
+    background-image: url("../images/back7.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* You must set a specified height */
+    
+ 
+}
+
+.nav-wrapper{
+    background-color:#6896e9;
 }
