@@ -2,21 +2,25 @@
     color: #c11500;
 }
 
-/*------------------------submit button----*/
+/*----------------------------------------------submit button----*/
 
 .button-style{
     text-align: center;
 }
-
+/*---------------------------------------------- homepage cards----*/
 .card-container{
-    position: relative;}
+    text-align: center;
+}
 
+.cards{
+    text-align: center;
+    }
 
 .card {
     width: 75%;
-    float: none;
+    display: inline-block;
+    vertical-align: middle;
 }
-
 
 .website_info{
     border: black solid 1px;
