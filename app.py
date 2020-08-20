@@ -55,24 +55,22 @@ def add_company():
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
     query1 = request.form.get("company_query")
-    print(query1)
+    query2 = request.form.get("remote_option")
+    print(type(query1))
+    print(type(query2))
     if query1 is None:
+        # Only carry out a checkbox search
+        company = mongo.db.companies.find({"$text": {"$search": query2}})
         return render_template("search_companies.html")
-    else:
+    elif query2 is None:
+        # Only carry out a text search
         company = mongo.db.companies.find({"$text": {"$search": query1}})
+    else:
+        # Carry out both checkbox and text search
+        company = mongo.db.companies.find(
+            {"$text": {"$search": ''.join(
+                ["\"", query1, "\" \"", query2, "\""])}})
     return render_template("all_companies_list.html", list_company=company)
-    query2 = request.form["remote_option"]
-    print(query2)
-    company = mongo.db.companies.find({"remote": query2})
-    return render_template("all_companies_list.html", list_company=company)
-
-
-# @app.route("/filters", methods=["GET", "POST"])
-# def filters():
-    # query = request.form["remote_option"]
-    # print(query)
-    # company = mongo.db.companies.find({"remote": query})
-    # return render_template("all_companies_list.html", list_company=company)
 
 
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])

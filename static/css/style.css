@@ -8,6 +8,18 @@
     text-align: center;
 }
 
+.card-container{
+    position: relative;}
 
 
+.card {
+    width: 75%;
+    float: none;
+}
 
+
+.website_info{
+    border: black solid 1px;
+    margin: 10rem;
+    text-align: center;
+}
