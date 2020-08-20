@@ -25,12 +25,12 @@
 .website_info{
     padding-top: 2rem;
     padding-bottom: 2rem;
-    text-align: center;
+    
     color: white;
     height:20rem;
     margin: auto;
     font-size: 1.5rem;
-    background-color: 	#28b0c6;
+    background-color: 	#28b0c6; 
 
     
 }
