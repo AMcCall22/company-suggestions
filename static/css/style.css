@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
 #heading{
     color: #c11500;
@@ -12,6 +12,7 @@
 /*---------------------------------------------- homepage cards----*/
 .card-container{
     text-align: center;
+    
 }
 
 .cards{
@@ -24,26 +25,32 @@
     
 }
 
+
 .website_info{
     padding-top: 2rem;
     padding-bottom: 2rem;
-    font-family: 'Dosis', sans-serif;
-    color: #666666;
+    font-family: 'Fjalla One', sans-serif;
+    color: black;
     height:20rem;
-    margin: auto;
+     margin: 0 auto;
     font-size: 1.5rem;
     text-align: center;
+   
 }
 
 .website_background{
-    background-image: url("../images/back5.jpg");
+    background-image: url("../images/back3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 20rem;
+    height: 25rem;
     
- 
+    
+    
 }
+    
+
+
 
 .nav-wrapper{
     background-color:	#c63e28;

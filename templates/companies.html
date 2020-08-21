@@ -1,12 +1,17 @@
 {% extends "base.html" %} {% block content %}
+
+<div class="background_info section container">
 <div class="row info">
-  <div class="col m4 website_background"></div>
-  <div class="col m4 website_info">
-    <h4>    A dynamic collection of current software engineering companies.</h4>
-    <h5>    Browse to find roles suitable for yourself or others.</h5>
-    <h5>    Register to add, edit and delete companies to the collection.</h5>
+  <div class="website_background">
   </div>
-  <div class="col m4 website_background"></div>
+</div>
+  <div class="row">
+    <div class="website_info">
+      <h4>A dynamic collection of current software engineering companies.</h4>
+      <h5>Browse to find roles suitable for yourself or others.</h5>
+      <h5>Register to add, edit and delete companies to the collection.</h5>
+    </div>
+  </div>
 </div>
 
 {% for company in show_company %}
