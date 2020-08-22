@@ -14,27 +14,21 @@
     text-align: center;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):n{
-    color: #c11500;}
-
-
-
  .card { 
     margin-top: 0rem;
     text-align: center;
     font-family: 'Fjalla One', sans-serif;}
     
-
+/*---------------------------------------------- homepage info and image----*/
 
 .website_info{
     padding-top: 2rem;
     font-family: 'Fjalla One', sans-serif;
     color: black;
     height:20rem;
-     margin: 0 auto;
+    margin: 0 auto;
     font-size: 1.5rem;
     text-align: center;
-   
 }
 
 .website_background{
@@ -42,10 +36,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 25rem;
-    
-    
-    
+    height: 25rem;   
 }
     
 .website{
@@ -53,9 +44,9 @@
 }
 
 
-.nav-wrapper{
-    background-color:	#c63e28;
-}
-
+/*---------------------------------------------- companies list----*/
+.collection-list{
+    width: 30rem;
+   }
 
 
