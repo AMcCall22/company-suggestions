@@ -12,23 +12,22 @@
 /*---------------------------------------------- homepage cards----*/
 .card-container{
     text-align: center;
-    
 }
 
-.cards{
+.card .card-action a:not(.btn):not(.btn-large):n{
+    color: #c11500;}
+
+
+
+ .card { 
+    margin-top: 0rem;
     text-align: center;
-    }
-
-.card {
-    width: 75%;
-    display: inline-block;
+    font-family: 'Fjalla One', sans-serif;}
     
-}
 
 
 .website_info{
     padding-top: 2rem;
-    padding-bottom: 2rem;
     font-family: 'Fjalla One', sans-serif;
     color: black;
     height:20rem;
@@ -49,7 +48,9 @@
     
 }
     
-
+.website{
+    margin-bottom: 0rem;
+}
 
 
 .nav-wrapper{
