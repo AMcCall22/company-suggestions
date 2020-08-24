@@ -1,28 +1,66 @@
 {% extends "base.html" %} {% block content %} {% for company in list_company %}
-
-
-<div class="row section valign-wrapper">
-<ul class="collection collection-list col 9 grey darken-1" >
-	<li class="collection-item">
-		<h5 class="center-align title">Company Name: {{ company.company_name }}</h5>
+<div class="row">
+<div class="list-container col m6">
+  <div class="row section">
+    <ul class="collection collection-list">
+      <li class="collection-item">
+        <h5 class="center-align title">
+          Company Name: {{ company.company_name }}
+        </h5>
         <p>Type of Company: {{ company.company_type }}</p>
         <p>Description: {{ company.description }}</p>
         <p>Sector: {{ company.sector }}</p>
-		<p>Remote Positions: {{ company.remote }}</p>
-		<p>Level of Positions: {{ company.level_of_positions }}</p>
-		<a href="{{ company.url }}">Website</a>
-	</li>
-</ul>
-<div class="col 3 delete_edit_buttons">
-<a href = "{{url_for('edit_company', company_id=company._id) }}" class="waves-effect btn-small buttons">Edit</a>
-<a href = "{{url_for('delete_company', company_id=company._id) }}" class="waves-effect btn-small buttons">Delete</a>
+        <p>Remote Positions: {{ company.remote }}</p>
+        <p>Level of Positions: {{ company.level_of_positions }}</p>
+        <a href="{{ company.url }}">Website</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="delete_edit_buttons">
+      <a
+        href="{{url_for('edit_company', company_id=company._id) }}"
+        class="waves-effect btn-small buttons"
+        >Edit</a
+      >
+      <a
+        href="{{url_for('delete_company', company_id=company._id) }}"
+        class="waves-effect btn-small buttons"
+        >Delete</a
+      >
+    </div>
+  </div>
+</div>
+<div class="list-container col m6">
+  <div class="row section">
+    <ul class="collection collection-list">
+      <li class="collection-item">
+        <h5 class="center-align title">
+          Company Name: {{ company.company_name }}
+        </h5>
+        <p>Type of Company: {{ company.company_type }}</p>
+        <p>Description: {{ company.description }}</p>
+        <p>Sector: {{ company.sector }}</p>
+        <p>Remote Positions: {{ company.remote }}</p>
+        <p>Level of Positions: {{ company.level_of_positions }}</p>
+        <a href="{{ company.url }}">Website</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="delete_edit_buttons">
+      <a
+        href="{{url_for('edit_company', company_id=company._id) }}"
+        class="waves-effect btn-small buttons"
+        >Edit</a
+      >
+      <a
+        href="{{url_for('delete_company', company_id=company._id) }}"
+        class="waves-effect btn-small buttons"
+        >Delete</a
+      >
+    </div>
+  </div>
 </div>
 </div>
-
-
-
-
-
-{% endfor %}
-
-{% endblock %}
+{% endfor %} {% endblock %}

@@ -12,7 +12,7 @@
 /*---------------------------------------------- homepage cards----*/
 .card-container{
     text-align: center;
-margin-top: 2rem;
+    margin-top: 2rem;
 }
 
  .card { 
@@ -23,14 +23,21 @@ margin-top: 2rem;
 .card-heading{
     font-family: 'Fjalla One', sans-serif;
 }
+
+.company-name{
+    color: #2877c6}
+
+
     
 /*---------------------------------------------- homepage info and image----*/
+.home-title{
+    color: #2877c6
+}
 
 .website_info{
     padding-top: 2rem;
     font-family: 'Fjalla One', sans-serif;
     color: black;
-    
     margin: 0 auto;
     font-size: 1.5rem;
     text-align: center;
@@ -53,7 +60,11 @@ margin-top: 2rem;
 .collection-list{
     width: 30rem;
     font-family: 'Fjalla One', sans-serif;
-    margin-left: 5rem;
+margin: 0 auto;
+    
    }
 
+.list-container{
+    text-align: center;
+    }
 

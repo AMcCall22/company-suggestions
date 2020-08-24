@@ -6,7 +6,7 @@
   </div>
   <div class="row website">
     <div class="website_info">
-      <h4>A dynamic collection of current software engineering companies.</h4>
+      <h4 class="home-title">A dynamic collection of current software engineering companies which regularly offer coding opportunities!</h4>
       <h5>Browse to find roles suitable for yourself or others.</h5>
       <h5>Register to add, edit and delete companies to the collection.</h5>
     </div>
@@ -18,9 +18,11 @@
 {% for company in show_company %}
 <div class="row card-container">
   <div class="col s12 m3 cards">
-    <div class="card small">
+    <div class="card small grey lighten-5">
       <div class="card-content">
-        <h4>{{ company.company_name }}</h4>
+        <h4 class="company-name">{{ company.company_name }}</h4>
+        <p>Type of Company: {{ company.company_type }}</p>
+        <p>Description: {{ company.description }}</p>
         <p>{{ company.sector }}</p>
         <p>Remote Positions: {{ company.remote }}</p>
         <p>Level of Positions: {{ company.level_of_positions }}</p>
