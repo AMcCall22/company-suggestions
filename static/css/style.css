@@ -18,6 +18,10 @@
     margin-top: 0rem;
     text-align: center;
     font-family: 'Fjalla One', sans-serif;}
+
+.card-heading{
+    font-family: 'Fjalla One', sans-serif;
+}
     
 /*---------------------------------------------- homepage info and image----*/
 
@@ -47,6 +51,8 @@
 /*---------------------------------------------- companies list----*/
 .collection-list{
     width: 30rem;
+    font-family: 'Fjalla One', sans-serif;
+    margin-left: 5rem;
    }
 
 

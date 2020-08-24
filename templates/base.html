@@ -1,56 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-		crossorigin="anonymous" type="text/css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		type="text/css" />
-<link
-         rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-         type="text/css"
-         />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
       <link
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
-	{% block styles %} {% endblock %}
-	<title>Company Suggestions</title>
-</head>
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+      type="text/css"
+    />
+    {% block styles %} {% endblock %}
+    <title>Company Suggestions</title>
+  </head>
 
-<body>
-	<!-- Dropdown Structure -->
-	<header>
-		<ul id="dropdown1" class="dropdown-content">
-			<li><a href="#!">Company</a></li>
-			<li class="divider"></li>
-			<li><a href="#!">Agency</a></li>
-		</ul>
-    <div class="navbar-fixed">
-		<nav>
-			<div class="nav-wrapper red accent-4">
-				<ul class="right hide-on-med-and-down">
-					<li><a href="{{ url_for('show_company') }}">Home</a></li>
-					<li><a href="{{ url_for('list_company') }}">Company List</a></li>
-					<li><a href="{{ url_for('search_company') }}">Search</a></li>
-					<li><a href="{{ url_for('add_company') }}">Add Company</a></li>
-					<li><a href="#">Login</a></li>
-				</ul>
-			</div>
-		</nav>
-    </div>
-	</header>
-	{% block content %} {% endblock %}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
-		integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
-		crossorigin="anonymous"></script>
-	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-	{% block scripts %} {% endblock %}
-</body>
+  <body>
+    <header>
+      <nav class="red darken-3">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">CodeScan</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="fas fa-bars"></i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('show_company') }}">Home</a></li>
+            <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+            <li><a href="{{ url_for('search_company') }}">Search</a></li>
+            <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </nav>
 
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('show_company') }}">Home</a></li>
+        <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+        <li><a href="{{ url_for('search_company') }}">Search</a></li>
+        <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </header>
+
+    <!-- <header>
+      <nav>
+        <div class="nav-wrapper nav-extended">
+          <a href="#" data-target="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('show_company') }}">Home</a></li>
+            <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+            <li><a href="{{ url_for('search_company') }}">Search</a></li>
+            <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+      </nav> -->
+
+    <!-- Mobile Navbar
+      <ul class="button-collapse" id="mobile-demo">
+        <li><a href="{{ url_for('show_company') }}">Home</a></li>
+        <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+        <li><a href="{{ url_for('search_company') }}">Search</a></li>
+        <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+        <li><a href="#">Login</a></li>
+      </ul> -->
+
+    {% block content %} {% endblock %}
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+      integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %} {% endblock %}
+  </body>
 </html>
