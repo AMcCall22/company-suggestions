@@ -37,10 +37,10 @@ def list_company():
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
+        current_user = mongo.db.users.find_one(
             {"name": request.form.get("name").lower()}
         )
-        if existing_user:
+        if current_user:
             return redirect(url_for("registration"))
 
         registration = {
@@ -55,6 +55,20 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        current_user = mongo.db.users.find_one(
+            {"name": request.form.get("name").lower()})
+
+        if current_user:
+            if check_password_hash(current_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("name").lower()
+            else:
+                flash(
+                    "Incorrect Username or Password entered. Please try again.")
+
+        else:
+            flash("Incorrect Username or Password entered. Please try again.")
+            return redirect(url_for("login"))
     return render_template("login.html")
 
 
