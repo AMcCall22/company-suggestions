@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -31,6 +32,25 @@ def show_company():
 def list_company():
     company = mongo.db.companies.find()
     return render_template("all_companies_list.html", list_company=company)
+
+
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"name": request.form.get("name").lower()}
+        )
+        if existing_user:
+            return redirect(url_for("registration"))
+
+        registration = {
+            "name": request.form.get("name").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(registration)
+
+        session["user"] = request.form.get("name").lower()
+    return render_template("registration.html")
 
 
 # Connects to company_type collection in MongoDB for dropdown options

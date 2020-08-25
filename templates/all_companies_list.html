@@ -1,7 +1,6 @@
 {% extends "base.html" %} {% block content %} {% for company in list_company %}
 <div class="row">
-<div class="list-container col m6">
-  <div class="row section">
+  <div class="list-container col s12 m6 l3">
     <ul class="collection collection-list">
       <li class="collection-item">
         <h5 class="center-align title">
@@ -15,8 +14,9 @@
         <a href="{{ company.url }}">Website</a>
       </li>
     </ul>
-  </div>
-  <div class="row">
+</div>
+</div>
+    <!-- <div class="row">
     <div class="delete_edit_buttons">
       <a
         href="{{url_for('edit_company', company_id=company._id) }}"
@@ -30,37 +30,19 @@
       >
     </div>
   </div>
-</div>
-<div class="list-container col m6">
-  <div class="row section">
-    <ul class="collection collection-list">
-      <li class="collection-item">
-        <h5 class="center-align title">
-          Company Name: {{ company.company_name }}
-        </h5>
-        <p>Type of Company: {{ company.company_type }}</p>
-        <p>Description: {{ company.description }}</p>
-        <p>Sector: {{ company.sector }}</p>
-        <p>Remote Positions: {{ company.remote }}</p>
-        <p>Level of Positions: {{ company.level_of_positions }}</p>
-        <a href="{{ company.url }}">Website</a>
-      </li>
-    </ul>
-  </div>
-  <div class="row">
-    <div class="delete_edit_buttons">
-      <a
-        href="{{url_for('edit_company', company_id=company._id) }}"
-        class="waves-effect btn-small buttons"
-        >Edit</a
-      >
-      <a
-        href="{{url_for('delete_company', company_id=company._id) }}"
-        class="waves-effect btn-small buttons"
-        >Delete</a
-      >
-    </div>
-  </div>
-</div>
-</div>
-{% endfor %} {% endblock %}
+</div> -->
+
+
+{% endfor %}
+
+<!-- <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul> -->
+
+{% endblock %}

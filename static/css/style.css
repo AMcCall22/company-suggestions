@@ -1,70 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 
-#heading{
-    color: #c11500;
+#heading {
+  color: #c11500;
 }
 
 /*----------------------------------------------submit button----*/
 
-.button-style{
-    text-align: center;
+.button-style {
+  text-align: center;
 }
 /*---------------------------------------------- homepage cards----*/
-.card-container{
-    text-align: center;
-    margin-top: 2rem;
+.card-container {
+  text-align: center;
+  margin-top: 2rem;
 }
 
- .card { 
-    margin-top: 0rem;
-    text-align: center;
-    font-family: 'Fjalla One', sans-serif;}
-
-.card-heading{
-    font-family: 'Fjalla One', sans-serif;
+.card {
+  margin-top: 0rem;
+  text-align: center;
+  font-family: "Fjalla One", sans-serif;
 }
 
-.company-name{
-    color: #2877c6}
+.card-heading {
+  font-family: "Fjalla One", sans-serif;
+}
 
+.company-name {
+  color: #2877c6;
+}
 
-    
 /*---------------------------------------------- homepage info and image----*/
-.home-title{
-    color: #2877c6
+.home-title {
+  color: #2877c6;
 }
 
-.website_info{
-    padding-top: 2rem;
-    font-family: 'Fjalla One', sans-serif;
-    color: black;
-    margin: 0 auto;
-    font-size: 1.5rem;
-    text-align: center;
+.website_info {
+  padding-top: 2rem;
+  font-family: "Fjalla One", sans-serif;
+  color: black;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-.website_background{
-    background-image: url("../images/back3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 25rem;   
-}
-    
-.website{
-    margin-bottom: 0rem;
+.website_background {
+  background-image: url("../images/back3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 25rem;
 }
 
+.website {
+  margin-bottom: 0rem;
+}
 
 /*---------------------------------------------- companies list----*/
-.collection-list{
-    width: 30rem;
-    font-family: 'Fjalla One', sans-serif;
-margin: 0 auto;
-    
-   }
+.collection-list {
+  font-family: "Fjalla One", sans-serif;
+  margin-bottom: 0;
+}
 
-.list-container{
-    text-align: center;
-    }
+.list-container {
+  text-align: center;
+}
 
+.buttons {
+  background-color: #2877c6;
+}
