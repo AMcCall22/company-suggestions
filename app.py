@@ -90,12 +90,12 @@ def is_logged_in(f):
     return wrap
 
 
-# # User Log Out
-# @app.route("/logout")
-# def logout():
-#     session.clear()
-#     flash("You're now logged out!")
-#     return redirect(url_for("login"))
+# User Log Out
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("You're now logged out!")
+    return redirect(url_for("login"))
 
 
 # Connects to company_type collection in MongoDB for dropdown options
