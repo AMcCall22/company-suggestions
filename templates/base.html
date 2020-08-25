@@ -50,23 +50,38 @@
               ><i class="fas fa-bars"></i
             ></a>
             <ul class="right hide-on-med-and-down">
+              {% if session.logged_in %}
+              <li><a href="{{ url_for('show_company') }}">Home</a></li>
+              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+              <li><a href="{{ url_for('search_company') }}">Search</a></li>
+              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+              {% else %}
               <li><a href="{{ url_for('show_company') }}">Home</a></li>
               <li><a href="{{ url_for('list_company') }}">Company List</a></li>
               <li><a href="{{ url_for('search_company') }}">Search</a></li>
               <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
               <li><a href="{{ url_for('login') }}">Login</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+              {% endif %}
             </ul>
           </div>
         </nav>
       </div>
 
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('show_company') }}">Home</a></li>
-        <li><a href="{{ url_for('list_company') }}">Company List</a></li>
-        <li><a href="{{ url_for('search_company') }}">Search</a></li>
-        <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
-        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% if session.logged_in %}
+              <li><a href="{{ url_for('show_company') }}">Home</a></li>
+              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+              <li><a href="{{ url_for('search_company') }}">Search</a></li>
+              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+              {% else %}
+              <li><a href="{{ url_for('show_company') }}">Home</a></li>
+              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+              <li><a href="{{ url_for('search_company') }}">Search</a></li>
+              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+              <li><a href="{{ url_for('login') }}">Login</a></li>
+              {% endif %}
       </ul>
     </header>
 
