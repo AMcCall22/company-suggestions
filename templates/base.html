@@ -42,23 +42,23 @@
 
   <body>
     <header>
-<div class="navbar-fixed">
-      <nav class="red darken-3">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">CodeScan</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="fas fa-bars"></i
-          ></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('show_company') }}">Home</a></li>
-            <li><a href="{{ url_for('list_company') }}">Company List</a></li>
-            <li><a href="{{ url_for('search_company') }}">Search</a></li>
-            <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-</div>
+      <div class="navbar-fixed">
+        <nav class="red darken-3">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">CodeScan</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+              ><i class="fas fa-bars"></i
+            ></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{{ url_for('show_company') }}">Home</a></li>
+              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+              <li><a href="{{ url_for('search_company') }}">Search</a></li>
+              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+              <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('show_company') }}">Home</a></li>
@@ -69,7 +69,18 @@
       </ul>
     </header>
 
-    {% block content %} {% endblock %}
+    <section>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="row flashes">
+        <h5 class="center-align">{{ message }}</h5>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+    </section>
+
+    <main class="container">
+      {% block content %} {% endblock %}
+    </main>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

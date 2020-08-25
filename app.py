@@ -50,6 +50,7 @@ def registration():
         mongo.db.users.insert_one(registration)
 
         session["user"] = request.form.get("name").lower()
+        flash("You are now registered! Please log in.")
     return render_template("registration.html")
 
 
@@ -60,15 +61,17 @@ def login():
             {"name": request.form.get("name").lower()})
 
         if current_user:
-            if check_password_hash(current_user["password"], request.form.get("password")):
+            if check_password_hash(
+                    current_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("name").lower()
+                flash("You are now logged in!")
             else:
-                flash(
-                    "Incorrect Username or Password entered. Please try again.")
+                flash("Incorrect Username or Password entered, please try again.")
 
         else:
-            flash("Incorrect Username or Password entered. Please try again.")
+            flash("Incorrect Username or Password entered, please try again.")
             return redirect(url_for("login"))
+
     return render_template("login.html")
 
 
@@ -125,11 +128,13 @@ def edit_company(company_id):
             "remote": request.form.get("remote"),
             "level_of_positions": request.form.get("level_of_positions"),
         }
-        mongo.db.companies.update({"_id": ObjectId(company_id)}, submit_company)
+        mongo.db.companies.update(
+            {"_id": ObjectId(company_id)}, submit_company)
 
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
     company_type = mongo.db.company_type.find()
-    return render_template("edit_company.html", company=company, company_type=company_type)
+    return render_template(
+        "edit_company.html", company=company, company_type=company_type)
 
 
 @app.route("/delete_company/<company_id>")
