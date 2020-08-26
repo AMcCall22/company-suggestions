@@ -1,23 +1,20 @@
 {% extends "base.html" %} {% block content %} {% for company in list_company %}
-<div class="row">
-  <div class="list-container col s12 m6 l3">
-    <ul class="collection collection-list">
-      <li class="collection-item">
-        <h5 class="center-align title">
-          Company Name: {{ company.company_name }}
-        </h5>
+<div class="row card-container">
+  <div class="col s12 m3 cards">
+    <div class="card small grey lighten-5">
+      <div class="card-content">
+        <h4 class="company-name">{{ company.company_name }}</h4>
         <p>Type of Company: {{ company.company_type }}</p>
         <p>Description: {{ company.description }}</p>
-        <p>Sector: {{ company.sector }}</p>
-        <p>Remote Positions: {{ company.remote }}</p>
-        <p>Level of Positions: {{ company.level_of_positions }}</p>
-        <a href="{{ company.url }}">Website</a>
-      </li>
-    </ul>
-</div>
-
-    <!-- <div class="row">
-    <div class="delete_edit_buttons">
+        <p>{{ company.sector }}</p>
+        <p>Remote Positions: {{ company.remote }}</p>
+        <p>Level of Positions: {{ company.level_of_positions }}</p>
+      </div>
+      <div class="card-action center-align">
+        <a href="{{ company.url }}" class="red-text text-accent-4">Website</a>
+      </div>
+    </div>
+    <div class="row">
       <a
         href="{{url_for('edit_company', company_id=company._id) }}"
         class="waves-effect btn-small buttons"
@@ -30,11 +27,13 @@
       >
     </div>
   </div>
-</div> -->
 
+  {% endfor %}
 
-{% endfor %}
 </div>
+
+{% endblock %}
+
 <!-- <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active"><a href="#!">1</a></li>
@@ -44,5 +43,3 @@
     <li class="waves-effect"><a href="#!">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul> -->
-
-{% endblock %}
