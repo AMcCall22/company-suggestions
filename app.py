@@ -25,7 +25,7 @@ mongo = PyMongo(app)
 def show_company():
     company = mongo.db.companies.find().sort("_id", -1).limit(4)
     return render_template("companies.html", show_company=company)
-    return render_template("all_companies.list.html", show_company=company)
+    # return render_template("all_companies.list.html", show_company=company)
 
 
 # Display all companies as a list view
@@ -74,7 +74,7 @@ def login():
 
         else:
             flash("Incorrect Username or Password entered, please try again.")
-            return redirect(url_for("login"))
+            # return redirect(url_for("login"))
 
     return render_template("login.html")
 
@@ -113,6 +113,7 @@ def add_company():
             "level_of_positions": request.form.get("level_of_positions"),
         }
         mongo.db.companies.insert_one(company)
+        return redirect("all_companies_list.html")
     company_type = mongo.db.company_type.find()
     return render_template("add_company.html", company_type=company_type)
 
@@ -142,7 +143,6 @@ def search_company():
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
 @is_logged_in
 def edit_company(company_id):
-
     if request.method == "POST":
         submit_company = {
             "company_type": request.form.get("company_type"),
@@ -155,6 +155,7 @@ def edit_company(company_id):
         }
         mongo.db.companies.update(
             {"_id": ObjectId(company_id)}, submit_company)
+        return redirect(url_for('list_company'))
 
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
     company_type = mongo.db.company_type.find()
