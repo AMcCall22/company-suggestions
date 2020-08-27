@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/show_company")
 def show_company():
-    company = mongo.db.companies.find().sort("_id", -1).limit(4)
+    company = mongo.db.companies.find().sort("_id", -1).limit(3)
     return render_template("companies.html", show_company=company)
 
 

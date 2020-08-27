@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
 
 #heading {
-  color: #c11500;
+  color: #2877c6;
+    font-family: "Fjalla One", sans-serif;
 }
 
 
@@ -81,4 +82,8 @@
 
 .flash-message{
     font-family: "Fjalla One", sans-serif;
+}
+
+.search-button{
+    margin-top: 5rem;
 }
