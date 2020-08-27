@@ -2,7 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -16,6 +16,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 mongo = PyMongo(app)
 
 
@@ -25,14 +26,31 @@ mongo = PyMongo(app)
 def show_company():
     company = mongo.db.companies.find().sort("_id", -1).limit(4)
     return render_template("companies.html", show_company=company)
-    # return render_template("all_companies.list.html", show_company=company)
 
 
 # Display all companies as a list view
 @app.route("/list_company")
 def list_company():
-    company = mongo.db.companies.find()
+    company = mongo.db.companies.find().sort("_id", -1).limit(8)
     return render_template("all_companies_list.html", list_company=company)
+
+
+# # Display all companies as a list view
+# @app.route("/list_company")
+# def list_company():
+
+#     offset = int(request.args['offset'])
+#     limit = int(request.args['limit'])
+
+#     starting_id = mongo.db.companies.find().sort('_id', pymongo.ASCENDING)
+#     last_id = starting_id[offset]['_id']
+
+#     company = mongo.db.companies.find({'_id': {'$gte': last_id}}).sort('_id', pymongo.ASCENDING).limit(8)
+
+#     next_url = '/company?limit=' + str(limit) + '&offset=' + str(offset + limit)
+#     prev_url = '/company?limit=' + str(limit) + '&offset=' + str(offset - limit)
+
+#     return render_template("all_companies_list.html", list_company=company)
 
 
 @app.route("/registration", methods=["GET", "POST"])
