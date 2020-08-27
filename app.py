@@ -35,24 +35,6 @@ def list_company():
     return render_template("all_companies_list.html", list_company=company)
 
 
-# # Display all companies as a list view
-# @app.route("/list_company")
-# def list_company():
-
-#     offset = int(request.args['offset'])
-#     limit = int(request.args['limit'])
-
-#     starting_id = mongo.db.companies.find().sort('_id', pymongo.ASCENDING)
-#     last_id = starting_id[offset]['_id']
-
-#     company = mongo.db.companies.find({'_id': {'$gte': last_id}}).sort('_id', pymongo.ASCENDING).limit(8)
-
-#     next_url = '/company?limit=' + str(limit) + '&offset=' + str(offset + limit)
-#     prev_url = '/company?limit=' + str(limit) + '&offset=' + str(offset - limit)
-
-#     return render_template("all_companies_list.html", list_company=company)
-
-
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
