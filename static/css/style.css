@@ -73,3 +73,7 @@
 .buttons {
   background-color: #2877c6;
 }
+
+.delete-confirm{
+    width: 20%;
+    font-family: "Fjalla One", sans-serif;}

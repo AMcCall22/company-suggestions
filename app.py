@@ -113,7 +113,9 @@ def add_company():
             "level_of_positions": request.form.get("level_of_positions"),
         }
         mongo.db.companies.insert_one(company)
-        return redirect("all_companies_list.html")
+        flash("Company successfully added!")
+        return redirect(url_for('list_company'))
+
     company_type = mongo.db.company_type.find()
     return render_template("add_company.html", company_type=company_type)
 
@@ -155,6 +157,7 @@ def edit_company(company_id):
         }
         mongo.db.companies.update(
             {"_id": ObjectId(company_id)}, submit_company)
+        flash("Company successfully updated!")
         return redirect(url_for('list_company'))
 
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
