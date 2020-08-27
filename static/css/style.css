@@ -76,4 +76,9 @@
 
 .delete-confirm{
     width: 20%;
-    font-family: "Fjalla One", sans-serif;}
+    font-family: "Fjalla One", sans-serif;
+}
+
+.flash-message{
+    font-family: "Fjalla One", sans-serif;
+}
