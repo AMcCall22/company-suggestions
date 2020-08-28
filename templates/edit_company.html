@@ -71,17 +71,9 @@
     <!--company website -->
     <div class="row">
       <div class="input-field col s12">
-        <textarea
-          id="url"
-          name="url"
-          class="materialize-textarea validate"
-          required
-        >
-{{ company.url }}</textarea
-        >
-        <label for="url">Website</label>
+        <input id="url" type="url" name="url" class="validate" required> {{ company.url }}
+        <label for="url" data-error="wrong" data-success="right">Website</label>       
       </div>
-    </div>
     <!-- remote working options -->
     <div class="row">
       <div class="input-field col s12">

@@ -12,7 +12,7 @@
     <div class="row">
       <div class="input-field col s12">
         <select id="company_type" name="company_type" class="validate" required>
-          <option value="" disabled selected>Select company type</option>
+          <option value="" disabled selected>Select type</option>
           {% for company in company_type %}
           <option value="{{ company.company_type }}"
             >{{ company.company_type }}</option
@@ -61,13 +61,8 @@
     <!--company website -->
     <div class="row">
       <div class="input-field col s12">
-        <textarea
-          id="url"
-          name="url"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="url">Website</label>
+        <input id="url" type="url" class="validate" />
+        <label for="url" data-error="wrong" data-success="right">Website</label>
       </div>
     </div>
     <!-- remote working options -->
@@ -84,11 +79,7 @@
     <!-- level of job opportunities available -->
     <div class="row">
       <div class="input-field col s12">
-        <select
-          id="level_of_positions"
-          name="level_of_positions"
-          required   
-        >
+        <select id="level_of_positions" name="level_of_positions" required>
           <option value="" disabled selected>Level of Roles</option>
           <option value="Junior">Junior</option>
           <option value="Mid">Mid</option>
