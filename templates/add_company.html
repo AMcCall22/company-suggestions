@@ -19,7 +19,9 @@
           >
           {% endfor %}
         </select>
-        <label for="company_type">Company Type</label>
+        <label for="company_type" data-error="wrong" data-success="right"
+          >Company Type</label
+        >
       </div>
     </div>
     <!--company name -->
@@ -31,7 +33,9 @@
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="company_name">Company Name</label>
+        <label for="company_name" data-error="wrong" data-success="right"
+          >Company Name</label
+        >
       </div>
     </div>
     <div class="row">
@@ -42,7 +46,9 @@
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="sector">Sector</label>
+        <label for="sector" data-error="wrong" data-success="right"
+          >Sector</label
+        >
       </div>
     </div>
     <!--company description -->
@@ -55,13 +61,15 @@
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="description">Short Description</label>
+        <label for="description" data-error="wrong" data-success="right"
+          >Short Description</label
+        >
       </div>
     </div>
     <!--company website -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="url" type="url" class="validate" />
+        <input id="url" type="url" class="validate" required/>
         <label for="url" data-error="wrong" data-success="right">Website</label>
       </div>
     </div>
@@ -69,23 +77,29 @@
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote" required>
-          <option value="" disabled selected>Remote Working</option>
+<option value="" disabled selected>Select</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
           <option value="Sometimes">Sometimes</option>
         </select>
+        <label for="remote" data-error="wrong" data-success="right"
+          >Remote Working</label
+        >
       </div>
     </div>
     <!-- level of job opportunities available -->
     <div class="row">
       <div class="input-field col s12">
         <select id="level_of_positions" name="level_of_positions" required>
-          <option value="" disabled selected>Level of Roles</option>
-          <option value="Junior">Junior</option>
+<option value="" disabled selected>Select</option>
+                    <option value="Junior">Junior</option>
           <option value="Mid">Mid</option>
           <option value="Senior">Senior</option>
           <option value="Various">Various</option>
         </select>
+<label for="level_of_positions" data-error="wrong" data-success="right"
+          >Level of Roles</label
+        >
       </div>
     </div>
     <div class="button-style">
