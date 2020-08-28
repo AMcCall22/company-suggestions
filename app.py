@@ -2,7 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -125,8 +125,6 @@ def add_company():
 def search_company():
     query1 = request.form.get("company_query")
     query2 = request.form.get("remote_option")
-    print(type(query1))
-    print(type(query2))
     if query1 is None:
         # Only carry out a checkbox search
         company = mongo.db.companies.find({"$text": {"$search": query2}})

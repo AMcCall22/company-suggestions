@@ -45,7 +45,9 @@
       <div class="navbar-fixed">
         <nav class="red darken-3">
           <div class="nav-wrapper">
-            <a href="{{ url_for('show_company') }}" class="brand-logo logo">CodeScan</a>
+            <a href="{{ url_for('show_company') }}" class="brand-logo logo"
+              >CodeScan</a
+            >
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"
               ><i class="fas fa-bars"></i
             ></a>
@@ -70,18 +72,18 @@
 
       <ul class="sidenav" id="mobile-demo">
         {% if session.logged_in %}
-              <li><a href="{{ url_for('show_company') }}">Home</a></li>
-              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
-              <li><a href="{{ url_for('search_company') }}">Search</a></li>
-              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
-              <li><a href="{{ url_for('logout') }}">Logout</a></li>
-              {% else %}
-              <li><a href="{{ url_for('show_company') }}">Home</a></li>
-              <li><a href="{{ url_for('list_company') }}">Company List</a></li>
-              <li><a href="{{ url_for('search_company') }}">Search</a></li>
-              <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
-              <li><a href="{{ url_for('login') }}">Login</a></li>
-              {% endif %}
+        <li><a href="{{ url_for('show_company') }}">Home</a></li>
+        <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+        <li><a href="{{ url_for('search_company') }}">Search</a></li>
+        <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% else %}
+        <li><a href="{{ url_for('show_company') }}">Home</a></li>
+        <li><a href="{{ url_for('list_company') }}">Company List</a></li>
+        <li><a href="{{ url_for('search_company') }}">Search</a></li>
+        <li><a href="{{ url_for('add_company') }}">Add Company</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
       </ul>
     </header>
 
@@ -97,6 +99,44 @@
     <main class="container">
       {% block content %} {% endblock %}
     </main>
+    <footer class="page-footer red darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <p class="grey-text text-lighten-4">
+              This website has been designed to provide a repository for web
+              developers/software engineers to share and view companies that
+              offer suitable roles, especially junior roles. Please contact via social media for any feedback or comments!
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12 center-align">
+            <h6 class="white-text center-align">Social Media Links</h6>
+            <ul class="list-inline">
+              <li class="list-inline-item social-links">
+                <a href="https://twitter.com/alimc35?s=03" target="_blank">
+                  <i class="fab fa-twitter white-text" aria-hidden="true"></i>
+                  <span class="sr-only">Twitter</span>
+                </a>
+              </li>
+              <li class="list-inline-item social-links">
+                <a
+                  href="https://www.linkedin.com/in/alisonmccallum/"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin white-text" aria-hidden="true"></i>
+                  <span class="sr-only">LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+<div class="footer-copyright">
+            <div class="container">
+            © 2020 Copyright Text
+                        </div>
+          </div>
+    </footer>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
