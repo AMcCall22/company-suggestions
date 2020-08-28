@@ -22,7 +22,7 @@
           >
           {% endif %} {% endfor %}
         </select>
-        <label for="company_type">Company Type</label>
+        <label for="company_type" data-error="wrong" data-success="right">Company Type</label>
       </div>
     </div>
     <!--company name -->
@@ -50,57 +50,51 @@
         >
 {{ company.sector }}</textarea
         >
-        <label for="sector">Sector</label>
+        <label for="sector" data-error="wrong" data-success="right">Sector</label>
       </div>
     </div>
     <!--company description -->
     <div class="row">
       <div class="input-field col s12">
-        <textarea
-          id="description"
-          name="description"
-        maxlength="45"
-          class="materialize-textarea validate"
-          required
-        >
+<label for="description" data-error="wrong" data-success="right">Short Description</label>
+        <textarea id="description" name="description" maxlength="45" class="materialize-textarea validate" required>
 {{ company.description }}</textarea
         >
-        <label for="description">Short Description</label>
+        
       </div>
     </div>
     <!--company website -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="url" type="url" name="url" class="validate" required> {{ company.url }}
+        <input id="url" type="url" name="url" required class="validate" value = "{{ company.url }}">
         <label for="url" data-error="wrong" data-success="right">Website</label>       
       </div>
+    </div>
     <!-- remote working options -->
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote">
-          <option value="{{ company.remote }}" disabled>Remote Working</option>
+          <option value="{{ company.remote }}" disabled>Select</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
           <option value="Sometimes">Sometimes</option>
         </select>
+ <label for="remote" data-error="wrong" data-success="right"
+          >Remote Working</label
+        >
       </div>
     </div>
     <!-- level of job opportunities available -->
     <div class="row">
       <div class="input-field col s12">
-        <select
-          id="level_of_positions
-"
-          name="level_of_positions"
-        >
-          <option value="{{ company.level_of_positions }}" disabled
-            >Level of Opportunities</option
-          >
+        <select id="level_of_positions" name="level_of_positions">
+          <option value="{{ company.level_of_positions }}" disabled>Select</option>
           <option value="Junior">Junior</option>
           <option value="Mid">Mid</option>
           <option value="Senior">Senior</option>
           <option value="Various">Various</option>
         </select>
+<label for="level_of_positions" data-error="wrong" data-success="right">Level of Roles</label>
       </div>
     </div>
     <div class="button-style">
