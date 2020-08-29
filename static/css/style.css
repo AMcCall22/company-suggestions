@@ -106,3 +106,13 @@
 .form-container{
     margin-bottom: 8rem;
 }
+
+
+
+.pagination li.active {
+    background-color: #2877c6;
+}
+
+.edit-delete-buttons{ 
+    margin-bottom: 4rem;
+}

@@ -1,8 +1,9 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, jsonify)
-from flask_pymongo import PyMongo, pymongo
+    redirect, request, session, url_for)
+from flask_pymongo import PyMongo
+from flask_paginate import Pagination, get_page_args
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -28,25 +29,48 @@ def show_company():
     return render_template("companies.html", show_company=company)
 
 
-# Display all companies as a list view
 @app.route("/list_company")
 def list_company():
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    # Limit of 6 to be shown on each page
+    per_page = 6
+    offset = (page - 1) * per_page
+    # Gets the total values to be used later
+    total = mongo.db.companies.find().count()
+    # Gets all the companies from mongodb
+    company = mongo.db.companies.find()
+    # Paginates the companies found
+    paginatedCompanies = company[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='materialize')
+    return render_template('all_companies_list.html',
+                           list_company=company,
+                           companies=paginatedCompanies,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
 
-    offset = int(request.args['offset'])
-    limit = int(request.args['limit'])
+    # company = mongo.db.companies.find().sort("_id", -1).limit(8)
+    # return render_template("all_companies_list.html", list_company=company)
 
-    # offset = 8
-    # limit = 2
+    # offset = int(request.args['offset'])
+    # limit = int(request.args['limit'])
 
-    starting_id = mongo.db.companies.find().sort("_id", pymongo.ASCENDING)
-    last_id = starting_id[offset]['_id']
+    # # offset = 8
+    # # limit = 2
 
-    company = mongo.db.companies.find({'_id': {'$gte': last_id}}).sort("_id", pymongo.ASCENDING).limit(limit)
+    # starting_id = mongo.db.companies.find().sort("_id", pymongo.ASCENDING)
+    # last_id = starting_id[offset]['_id']
 
-    next_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset + limit)
-    prev_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset - limit)
-    print(next_url)
-    return jsonify({'result': company, 'next_url': next_url, 'prev_url': prev_url})
+    # company = mongo.db.companies.find({'_id': {'$gte': last_id}}).sort("_id", pymongo.ASCENDING).limit(limit)
+
+    # next_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset + limit)
+    # prev_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset - limit)
+    # print(next_url)
+
+    # return render_template("all_companies_list.html", {'result': company, 'next_url': next_url, 'prev_url': prev_url})
 
 
 @app.route("/registration", methods=["GET", "POST"])
