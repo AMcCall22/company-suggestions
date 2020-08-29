@@ -1,39 +1,58 @@
 {% extends "base.html" %} {% block content %}
 
 <h2 class="center-align" id="heading">Search Company</h2>
-<div class="row">
+<div class="row form-container">
+
+
   <form
     action="{{ url_for('search_company') }}"
     class="col s6 form-style offset-s3"
     method="POST"
   >
-    <div class="row">
-      <div class="input-field col s12">
+    <div class="row search-form">
+      <div class="input-field col s12 input-style">
+        
         <input
           type="text"
           name="company_query"
           id="company_query"
           class="validate"
         />
+
         <label for="company_query">Input company name, sector or descriptive word</label>
       </div>
       <div class="row">
         <div class="col s12 m6">
           <h6 class="filter-heading center-align">Remote Working</h6>
           <label>
-            <input type="checkbox" class="filled-in" name="remote_option" id="remote_yes" value="Yes" 
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="remote_option"
+              id="remote_yes"
+              value="Yes"
             />
             <span>Yes</span>
           </label>
           <br />
           <label>
-            <input type="checkbox" class="filled-in" name="remote_option" id="remote_no" value="No"
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="remote_option"
+              id="remote_no"
+              value="No"
             />
             <span>No</span>
           </label>
           <br />
           <label>
-            <input type="checkbox" class="filled-in" name="remote_option" id="remote_some" value="Sometimes"
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="remote_option"
+              id="remote_some"
+              value="Sometimes"
             />
             <span>Sometimes</span>
           </label>
@@ -41,34 +60,58 @@
         <div class="col s12 m6">
           <h6 class="filter-heading center-align">Level of Opportunities</h6>
           <label>
-            <input type="checkbox" class="filled-in" name="opps_junior" id="junior" value="junior"/>
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="opps_junior"
+              id="junior"
+              value="junior"
+            />
             <span>Junior</span>
           </label>
           <br />
           <label>
-            <input type="checkbox" class="filled-in" name="opps_mid" id="mid" value="mid"/>
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="opps_mid"
+              id="mid"
+              value="mid"
+            />
             <span>Mid</span>
           </label>
           <br />
           <label>
-            <input type="checkbox" class="filled-in" name="opps_senior" id="senior" value="senior"/>
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="opps_senior"
+              id="senior"
+              value="senior"
+            />
             <span>Senior</span>
           </label>
           <br />
           <label>
-            <input type="checkbox" class="filled-in" name="opps_various" id="various" value="various"/>
+            <input
+              type="checkbox"
+              class="filled-in"
+              name="opps_various"
+              id="various"
+              value="various"
+            />
             <span>Various</span>
           </label>
         </div>
       </div>
 
-    <div class="search-button">
-      <div class="button-style ">
-        <button class="btn waves-effect waves-light buttons" type="submit">
-          Search
-        </button>
+      <div class="search-button">
+        <div class="button-style">
+          <button class="btn waves-effect waves-light buttons" type="submit">
+            Search
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   </form>
 </div>

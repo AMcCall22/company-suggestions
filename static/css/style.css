@@ -92,5 +92,17 @@
 .search-input{
     width: 250px;}
 
+.input-style{
+    margin-top: 0;
+    }
 
+.page-footer{
+    padding-top: 0;}
 
+.footer-container{
+    margin-bottom: 0;
+}
+
+.form-container{
+    margin-bottom: 8rem;
+}

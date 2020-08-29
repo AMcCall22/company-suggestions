@@ -1,8 +1,8 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
-from flask_pymongo import PyMongo
+    redirect, request, session, url_for, jsonify)
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -31,8 +31,22 @@ def show_company():
 # Display all companies as a list view
 @app.route("/list_company")
 def list_company():
-    company = mongo.db.companies.find().sort("_id", -1).limit(8)
-    return render_template("all_companies_list.html", list_company=company)
+
+    offset = int(request.args['offset'])
+    limit = int(request.args['limit'])
+
+    # offset = 8
+    # limit = 2
+
+    starting_id = mongo.db.companies.find().sort("_id", pymongo.ASCENDING)
+    last_id = starting_id[offset]['_id']
+
+    company = mongo.db.companies.find({'_id': {'$gte': last_id}}).sort("_id", pymongo.ASCENDING).limit(limit)
+
+    next_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset + limit)
+    prev_url = '/list_company?limit=' + str(limit) + '&offset=' + str(offset - limit)
+    print(next_url)
+    return jsonify({'result': company, 'next_url': next_url, 'prev_url': prev_url})
 
 
 @app.route("/registration", methods=["GET", "POST"])
