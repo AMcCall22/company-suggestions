@@ -107,7 +107,9 @@
     margin-bottom: 8rem;
 }
 
-
+.pagination-container{
+    
+}
 
 .pagination li.active {
     background-color: #2877c6;
