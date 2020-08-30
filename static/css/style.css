@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 #heading {
   color: #2877c6;
@@ -20,15 +21,16 @@
   margin-top: 2rem;
 }
 
+.card-heading{
+    font-family: "Fjalla One", sans-serif;
+}
+
 .card {
   margin-top: 0rem;
   text-align: center;
   font-family: "Fjalla One", sans-serif;
 }
 
-.card-heading {
-  font-family: "Fjalla One", sans-serif;
-}
 
 .company-name {
   color: #2877c6;
@@ -89,11 +91,10 @@
 }
 
 
-.search-input{
-    width: 250px;}
 
 .input-style{
     margin-top: 0;
+    
     }
 
 .page-footer{
@@ -118,3 +119,4 @@
 .edit-delete-buttons{ 
     margin-bottom: 4rem;
 }
+
