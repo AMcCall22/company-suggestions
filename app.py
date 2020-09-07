@@ -29,6 +29,8 @@ def show_company():
     return render_template("companies.html", show_company=company)
 
 
+# Displays all companies in collection in card format
+# Pagination is included
 @app.route("/list_company")
 def list_company():
     page, per_page, offset = get_page_args(
@@ -44,6 +46,7 @@ def list_company():
     paginatedCompanies = company[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='materialize')
+    print(page)
     return render_template('all_companies_list.html',
                            list_company=company,
                            companies=paginatedCompanies,
@@ -53,6 +56,7 @@ def list_company():
                            )
 
 
+# Registration page for new users
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
@@ -73,7 +77,9 @@ def registration():
     return render_template("registration.html")
 
 
-# User Login
+# User Log In
+# Code inspiration taken from Traversy Media
+# https://www.youtube.com/watch?v=QEMtSUxtUDY
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -88,7 +94,7 @@ def login():
                 flash("You are now logged in!")
                 return redirect(url_for("show_company"))
             else:
-                flash("Incorrect Username or Password entered, please try again.")
+                flash("Incorrect Username or Password entered.")
 
         else:
             flash("Incorrect Username or Password entered, please try again.")
@@ -97,6 +103,9 @@ def login():
     return render_template("login.html")
 
 
+# A check to tell the user if they are logged in or not
+# Code inspiration taken from Traversy Media
+# https://www.youtube.com/watch?v=QEMtSUxtUDY
 def is_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -139,8 +148,11 @@ def add_company():
 
 
 # Search all companies and provide view of results
+# Allows for text and/or checkbox search
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
+    # Gets all the companies from mongodb
+# Gets all the companies from mongodb
     query1 = request.form.get("company_query")
     query2 = request.form.get("remote_option")
     if query1 is None:
@@ -155,9 +167,28 @@ def search_company():
         company = mongo.db.companies.find(
             {"$text": {"$search": ''.join(
                 ["\"", query1, "\" \"", query2, "\""])}})
-    return render_template("all_companies_list.html", list_company=company)
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    # Limit of 6 to be shown on each page
+    per_page = 6
+    offset = (page-1) * per_page
+    print(page)
+    total = company.count()
+    print(total)
+    paginatedCompanies = company[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='materialize')
+    print(page)
+    return render_template('all_companies_list.html',
+                           list_company=company,
+                           companies=paginatedCompanies,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
 
 
+# Allows logged in user to edit companies already in the database
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
 @is_logged_in
 def edit_company(company_id):
@@ -175,13 +206,13 @@ def edit_company(company_id):
             {"_id": ObjectId(company_id)}, submit_company)
         flash("Company successfully updated!")
         return redirect(url_for('list_company'))
-
     company = mongo.db.companies.find_one({"_id": ObjectId(company_id)})
     company_type = mongo.db.company_type.find()
     return render_template(
         "edit_company.html", company=company, company_type=company_type)
 
 
+# Allows logged in users to delete companies already in the database
 @app.route("/delete_company/<company_id>")
 @is_logged_in
 def delete_company(company_id):

@@ -42,6 +42,7 @@
 
   <body>
     <header>
+      <!-- main nav bar -->
       <div class="navbar-fixed">
         <nav class="red darken-3">
           <div class="nav-wrapper">
@@ -69,7 +70,7 @@
           </div>
         </nav>
       </div>
-
+      <!--side nav bar for mobile view -->
       <ul class="sidenav" id="mobile-demo">
         {% if session.logged_in %}
         <li><a href="{{ url_for('show_company') }}">Home</a></li>
@@ -88,6 +89,7 @@
     </header>
 
     <section>
+      <!--flash messages -->
       {% with messages = get_flashed_messages() %} {% if messages %} {% for
       message in messages %}
       <div class="row">
@@ -95,10 +97,10 @@
       </div>
       {% endfor %} {% endif %} {% endwith %}
     </section>
-
     <main class="container">
       {% block content %} {% endblock %}
     </main>
+    <!--footer-->
     <footer class="page-footer red darken-3">
       <div class="container">
         <div class="row footer-container">
@@ -106,7 +108,8 @@
             <p class="grey-text text-lighten-4">
               This website has been designed to provide a repository for web
               developers/software engineers to share and view companies that
-              offer suitable roles, especially junior roles. Please contact via social media for any feedback or comments!
+              offer suitable roles, especially junior roles. Please contact via
+              social media for any feedback or comments!
             </p>
           </div>
           <div class="col l4 offset-l2 s12 center-align">
@@ -131,12 +134,13 @@
           </div>
         </div>
       </div>
-<div class="footer-copyright">
-            <div class="container">
-            © 2020 Copyright Text
-                        </div>
-          </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2020 Copyright Text
+        </div>
+      </div>
     </footer>
+    <!--scripts-->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

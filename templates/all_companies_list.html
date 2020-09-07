@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% for company in list_company %}
-
+<!--list of all companies within the database, paginated-->
 <div class="row card-container">
   <div class="col s12 m4 cards">
     <div class="card small grey lighten-5">
@@ -15,6 +15,7 @@
         <a href="{{ company.url }}" class="red-text text-accent-4">Website</a>
       </div>
     </div>
+<!--delete and edit buttons for logged in users-->
     <div class="row edit-delete-buttons">
       <a
         href="{{url_for('edit_company', company_id=company._id) }}"
@@ -45,10 +46,12 @@
   </div>
   {% endfor %} 
 </div>
+<!--pagination allowing 6 companies per page-->
 <div class=" row pagination-container">
     <div class="col 12 offset-s2 offset-m5">
 {{ pagination.links }}
  </div>
+</div>
 {% endblock %} 
 
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-
+<!--search form for users to search for existing companies-->
 <h2 class="center-align" id="heading">Search Company</h2>
 <div class="row form-container">
 
@@ -19,7 +19,7 @@
           class="validate"
         />
 
-        <label for="company_query">Input company name, sector or keyword</label>
+        <label for="company_query">Input company name, sector or word</label>
       </div>
       <div class="row">
         <div class="col s12 m6">
@@ -63,7 +63,7 @@
             <input
               type="checkbox"
               class="filled-in"
-              name="opps_junior"
+              name="role_option"
               id="junior"
               value="junior"
             />
@@ -74,7 +74,7 @@
             <input
               type="checkbox"
               class="filled-in"
-              name="opps_mid"
+              name="role_option"
               id="mid"
               value="mid"
             />
@@ -85,7 +85,7 @@
             <input
               type="checkbox"
               class="filled-in"
-              name="opps_senior"
+              name="role_option"
               id="senior"
               value="senior"
             />
@@ -96,7 +96,7 @@
             <input
               type="checkbox"
               class="filled-in"
-              name="opps_various"
+              name="role_option"
               id="various"
               value="various"
             />

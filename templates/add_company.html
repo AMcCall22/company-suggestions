@@ -1,14 +1,13 @@
 {% extends "base.html" %} {% block content %}
-
+<!--form for logged in users to add in new companies-->
 <h2 class="center-align" id="heading">Add Company</h2>
-
 <div class="row">
   <form
     class="col s6 form-style offset-s3"
     method="POST"
     action="{{url_for('add_company') }}"
   >
-    <!--company type -->
+    <!--company type input from dropdown options-->
     <div class="row">
       <div class="input-field col s12">
         <select id="company_type" name="company_type" class="validate" required>
@@ -24,7 +23,7 @@
         >
       </div>
     </div>
-    <!--company name -->
+    <!--company name input -->
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -38,6 +37,7 @@
         >
       </div>
     </div>
+ <!--company sector input -->
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -73,7 +73,7 @@
         <label for="url" data-error="wrong" data-success="right">Website</label>
       </div>
     </div>
-    <!-- remote working options -->
+    <!-- remote working from dropdown options -->
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote" required>
@@ -87,7 +87,7 @@
         >
       </div>
     </div>
-    <!-- level of job opportunities available -->
+    <!-- level of roles dropdown options-->
     <div class="row">
       <div class="input-field col s12">
         <select id="level_of_positions" name="level_of_positions" required>

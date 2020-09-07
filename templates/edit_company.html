@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block content %}
+<!--form for logged in users to edit existing companies-->
 <h2 class="center-align" id="heading">Edit Company</h2>
 <div class="row">
   <form
@@ -6,7 +7,7 @@
     method="POST"
     action="{{url_for('edit_company', company_id=company._id) }}"
   >
-    <!--company type -->
+    <!--company type input from dropdown options-->
     <div class="row">
       <div class="input-field col s12">
         <select id="company_type" name="company_type" class="validate" required>
@@ -27,7 +28,7 @@
         >
       </div>
     </div>
-    <!--company name -->
+    <!--company name input-->
     <div class="row">
       <div class="input-field col s12">
         <input
@@ -41,7 +42,7 @@
         <label for="company_name">Company Name</label>
       </div>
     </div>
-    <!--company sector -->
+    <!--company sector input-->
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -58,7 +59,7 @@
         >
       </div>
     </div>
-    <!--company description -->
+    <!--company description input-->
     <div class="row">
       <div class="input-field col s12">
         <label for="description" data-error="wrong" data-success="right"
@@ -75,7 +76,7 @@
         >
       </div>
     </div>
-    <!--company website -->
+    <!--company website input-->
     <div class="row">
       <div class="input-field col s12">
         <input
@@ -89,7 +90,7 @@
         <label for="url" data-error="wrong" data-success="right">Website</label>
       </div>
     </div>
-    <!-- remote working options -->
+    <!-- remote working input from dropdown options -->
     <div class="row">
       <div class="input-field col s12">
         <select id="remote" name="remote">
@@ -103,7 +104,7 @@
         >
       </div>
     </div>
-    <!-- level of job opportunities available -->
+    <!-- level of roles dropdown options-->
     <div class="row">
       <div class="input-field col s12">
         <select id="level_of_positions" name="level_of_positions">
