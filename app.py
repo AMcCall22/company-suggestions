@@ -33,27 +33,9 @@ def show_company():
 # Pagination is included
 @app.route("/list_company")
 def list_company():
-    # page, per_page, offset = get_page_args(
-    #     page_parameter='page', per_page_parameter='per_page')
-    # # Limit of 6 to be shown on each page
-    # per_page = 6
-    # offset = (page - 1) * per_page
-    # # Gets the total values to be used later
-    # total = mongo.db.companies.find().count()
-    # # Gets all the companies from mongodb
-    # company = mongo.db.companies.find()
-    # # Paginates the companies found
-    # paginatedCompanies = company[offset: offset + per_page]
-    # pagination = Pagination(page=page, per_page=per_page, total=total,
-    #                         css_framework='materialize')
-    print(page)
+    company = mongo.db.companies.find()
     return render_template('all_companies_list.html',
                            list_company=company)
-                        #    companies=paginatedCompanies,
-                        #    page=page,
-                        #    per_page=per_page,
-                        #    pagination=pagination,
-                        #    )
 
 
 # Registration page for new users
@@ -168,26 +150,7 @@ def search_company():
     #     flash("No results found. Please search again!")
     return render_template('all_companies_list.html',
                            list_company=company)
-    # page, per_page, offset = get_page_args(
-    #     page_parameter='page', per_page_parameter='per_page')
-    # # Limit of 6 to be shown on each page
-    # per_page = 6
-    # offset = (page-1) * per_page
-    # print(page)
-    # total = company.count()
-    # print(total)
-    # paginatedCompanies = company[offset: offset + per_page]
-    # pagination = Pagination(page=page, per_page=per_page, total=total,
-    #                         css_framework='materialize')
-    # print(page)
-    # return render_template('all_companies_list.html',
-    #                        list_company=company,
-    #                        companies=paginatedCompanies,
-    #                        page=page,
-    #                        per_page=per_page,
-    #                        pagination=pagination,
-    #                        )
-
+    
 
 # Allows logged in user to edit companies already in the database
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
