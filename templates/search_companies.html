@@ -2,8 +2,6 @@
 <!--search form for users to search for existing companies-->
 <h2 class="center-align" id="heading">Search Company</h2>
 <div class="row form-container">
-
-
 	<form action="{{ url_for('search_company') }}" class="col m6 form-style offset-m3" method="POST">
 		<div class="row search-form">
 			<div class="input-field col s12 input-style">
@@ -103,20 +101,17 @@
 		</div>
 		<div class="search-button">
 			<div class="button-style">
-				<button class="btn waves-effect waves-light buttons" type="submit">Search</button>
-						</div>
-					
-				</div>
-				
-					<div class="search-button">
-						<div class="button-style">
-							<button class="btn waves-effect waves-light  grey lighten-1 buttons" type="reset" value="refresh"">Clear Form</button>
-
+				<button class="btn waves-effect waves-light buttons btn-large" type="submit">Search</button>
 			</div>
 		</div>
-
-</div>
+		<div class="search-button">
+			<div class="button-style">
+				<button class="btn waves-effect waves-light grey lighten-1 buttons" type="reset" value="refresh">Clear Form</button>
+			</div>
+		</div>
 </form>
 </div>
+
+
 
 {% endblock %}

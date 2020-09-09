@@ -163,13 +163,11 @@ def search_company():
         queryString = "".join([queryString, " \"", query2, "\""])
     if query3 is not None:
         queryString = "".join([queryString, " \"", query3, "\""])
-    company = mongo.db.companies.find(
-        {"$text": {"$search": queryString}})
-    if not queryString.strip():
-        flash("No results found. Please search again!")
+    company = mongo.db.companies.find({"$text": {"$search": queryString}})
+    # if queryString != "":
+    #     flash("No results found. Please search again!")
     return render_template('all_companies_list.html',
                            list_company=company)
-
     # page, per_page, offset = get_page_args(
     #     page_parameter='page', per_page_parameter='per_page')
     # # Limit of 6 to be shown on each page
