@@ -4,27 +4,23 @@
 <div class="row form-container">
 
 
-  <form
-    action="{{ url_for('search_company') }}"
-    class="col m6 form-style offset-m3" 
-    method="POST"
-  >
-    <div class="row search-form">
-      <div class="input-field col s12 input-style">
-        
-        <input
+	<form action="{{ url_for('search_company') }}" class="col m6 form-style offset-m3" method="POST">
+		<div class="row search-form">
+			<div class="input-field col s12 input-style">
+
+				<input
           type="text"
           name="company_query"
           id="company_query"
           class="validate"
         />
 
-        <label for="company_query">Input company name, sector or word</label>
-      </div>
-      <div class="row">
-        <div class="col s12 m6">
-          <h6 class="filter-heading center-align">Remote Working</h6>
-          <label>
+				<label for="company_query">Input company name, sector or word</label>
+			</div>
+			<div class="row">
+				<div class="col s12 m6">
+					<h6 class="filter-heading center-align">Remote Working</h6>
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -34,8 +30,8 @@
             />
             <span>Yes</span>
           </label>
-          <br />
-          <label>
+					<br />
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -45,8 +41,8 @@
             />
             <span>No</span>
           </label>
-          <br />
-          <label>
+					<br />
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -56,10 +52,10 @@
             />
             <span>Sometimes</span>
           </label>
-        </div>
-        <div class="col s12 m6">
-          <h6 class="filter-heading center-align">Level of Opportunities</h6>
-          <label>
+				</div>
+				<div class="col s12 m6">
+					<h6 class="filter-heading center-align">Level of Opportunities</h6>
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -69,8 +65,8 @@
             />
             <span>Junior</span>
           </label>
-          <br />
-          <label>
+					<br />
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -80,8 +76,8 @@
             />
             <span>Mid</span>
           </label>
-          <br />
-          <label>
+					<br />
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -91,8 +87,8 @@
             />
             <span>Senior</span>
           </label>
-          <br />
-          <label>
+					<br />
+					<label>
             <input
               type="radio"
               class="filled-in"
@@ -102,18 +98,25 @@
             />
             <span>Various</span>
           </label>
-        </div>
-      </div>
+				</div>
+			</div>
+		</div>
+		<div class="search-button">
+			<div class="button-style">
+				<button class="btn waves-effect waves-light buttons" type="submit">Search</button>
+						</div>
+					
+				</div>
+				
+					<div class="search-button">
+						<div class="button-style">
+							<button class="btn waves-effect waves-light  grey lighten-1 buttons" type="reset" value="refresh"">Clear Form</button>
 
-      <div class="search-button">
-        <div class="button-style">
-          <button class="btn waves-effect waves-light buttons" type="submit">
-            Search
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
+			</div>
+		</div>
+
+</div>
+</form>
 </div>
 
 {% endblock %}
