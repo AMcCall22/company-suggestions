@@ -146,11 +146,11 @@ def search_company():
     if query3 is not None:
         queryString = "".join([queryString, " \"", query3, "\""])
     company = mongo.db.companies.find({"$text": {"$search": queryString}})
-    # if queryString != "":
-    #     flash("No results found. Please search again!")
+    if company.count() == 0:
+        flash("No results found. Please search again!")
     return render_template('all_companies_list.html',
                            list_company=company)
-    
+
 
 # Allows logged in user to edit companies already in the database
 @app.route("/edit_company/<company_id>", methods=["GET", "POST"])
