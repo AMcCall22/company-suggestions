@@ -148,44 +148,47 @@ def add_company():
 
 
 # Search all companies and provide view of results
-# Allows for text and/or checkbox search
+# Radio buttons
 @app.route("/search_company", methods=["GET", "POST"])
 def search_company():
-    # Gets all the companies from mongodb
-# Gets all the companies from mongodb
     query1 = request.form.get("company_query")
     query2 = request.form.get("remote_option")
+    query3 = request.form.get("role_option")
     if query1 is None:
-        # Only carry out a checkbox search
-        company = mongo.db.companies.find({"$text": {"$search": query2}})
-        return render_template("search_companies.html")
-    elif query2 is None:
-        # Only carry out a text search
-        company = mongo.db.companies.find({"$text": {"$search": query1}})
+        queryString = ""
+        return render_template('search_companies.html')
     else:
-        # Carry out both checkbox and text search
-        company = mongo.db.companies.find(
-            {"$text": {"$search": ''.join(
-                ["\"", query1, "\" \"", query2, "\""])}})
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page')
-    # Limit of 6 to be shown on each page
-    per_page = 6
-    offset = (page-1) * per_page
-    print(page)
-    total = company.count()
-    print(total)
-    paginatedCompanies = company[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='materialize')
-    print(page)
+        queryString = "".join(["\"", query1, "\""])
+    if query2 is not None:
+        queryString = "".join([queryString, " \"", query2, "\""])
+    if query3 is not None:
+        queryString = "".join([queryString, " \"", query3, "\""])
+    company = mongo.db.companies.find(
+        {"$text": {"$search": queryString}})
+    if not queryString.strip():
+        flash("No results found. Please search again!")
     return render_template('all_companies_list.html',
-                           list_company=company,
-                           companies=paginatedCompanies,
-                           page=page,
-                           per_page=per_page,
-                           pagination=pagination,
-                           )
+                           list_company=company)
+
+    # page, per_page, offset = get_page_args(
+    #     page_parameter='page', per_page_parameter='per_page')
+    # # Limit of 6 to be shown on each page
+    # per_page = 6
+    # offset = (page-1) * per_page
+    # print(page)
+    # total = company.count()
+    # print(total)
+    # paginatedCompanies = company[offset: offset + per_page]
+    # pagination = Pagination(page=page, per_page=per_page, total=total,
+    #                         css_framework='materialize')
+    # print(page)
+    # return render_template('all_companies_list.html',
+    #                        list_company=company,
+    #                        companies=paginatedCompanies,
+    #                        page=page,
+    #                        per_page=per_page,
+    #                        pagination=pagination,
+    #                        )
 
 
 # Allows logged in user to edit companies already in the database
