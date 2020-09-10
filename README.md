@@ -127,7 +127,7 @@ The footer contains some more detail around the purpose of the website, as well 
 - MongoDB
 - Balsamiq
 - Github/Gitpod
-- Font Awesome
+- Heroku
 - Google Fonts
 - Unicorn Revealer (https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln)
 

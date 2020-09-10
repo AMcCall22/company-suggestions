@@ -43,7 +43,7 @@ def list_company():
     # Get the total values to be used later
     total = mongo.db.companies.find().count()
     # Get all the companies from mongodb
-    company = mongo.db.companies.find()
+    company = mongo.db.companies.find().sort('_id', -1)
     # Paginate the companies found
     paginatedCompanies = company[offset:offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,
