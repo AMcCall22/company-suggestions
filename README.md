@@ -42,7 +42,7 @@ Link to [Wireframes](/README_Files/MS3_Wireframes.pdf)
 
 ##### 
 
-##### Features
+#### Features
 
 Materialize 1.0.0 was used as the basis of the design to provide a modern and standardised layout throughout the site.
 
@@ -81,8 +81,6 @@ Radio buttons were introduced allowing users to search on a combination of the f
 A 'submit button' performs the required search and a 'clear button' resets the search form.
 
 A flash message appears if no results have been found as per the search parameters.
-
-
 
 ##### Add Company
 
@@ -134,13 +132,11 @@ The footer contains some more detail around the purpose of the website, as well 
 - Unicorn Revealer (https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln)
 
 
-
 #### Testing
 
 Please find a separate file detailing the testing undertaken here:
 
 [Testing](/Testing_MS3.md)
-
 
 
 #### Issues faced and resolved
@@ -149,7 +145,7 @@ The search functionality originally used checkboxes but the logic for combining 
 
 Pagination within the search function proved too complex so a workaround was introduced. This was necessary because the function calls the all_companies_list.html as a results page, and this html document has pagination embedded within it. Therefore, I increased the limit of the search results per page to 1000, which avoids the need for the function to call the pagination logic (unless the results were > 1000). This will be reviewed in the future.
 
-##### Future Developments
+#### Future Developments
 
 **Registration/Login/Logout**
 
@@ -170,7 +166,7 @@ Pagination logic to be reviewed and added
 
 
 
-##### Deployment 
+#### Deployment 
 
 #### Heroku
 

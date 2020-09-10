@@ -19,39 +19,32 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
-# Displays 4 most recently added companies on home page
 
 @app.route('/')
 @app.route('/show_company')
 def show_company():
+    # Display 4 most recently added companies on home page
     company = mongo.db.companies.find().sort('_id', -1).limit(3)
     return render_template('companies.html', show_company=company)
 
 
-# Displays all companies in collection in card format
-# Pagination inspiration -
-# https://github.com/DarilliGames/flaskpaginate/blob/master/app.py
-
 @app.route('/list_company')
 def list_company():
-    (page, per_page, offset) = get_page_args(page_parameter='page',
-            per_page_parameter='per_page')
-
+    """
+    Display all companies in collection in card format
+    Pagination inspiration -
+    https://github.com/DarilliGames/flaskpaginate/blob/master/app.py
+    """
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
     # Limit of 6 to be shown on each page
-
     per_page = 6
     offset = (page - 1) * per_page
-
-    # Gets the total values to be used later
-
+    # Get the total values to be used later
     total = mongo.db.companies.find().count()
-
-    # Gets all the companies from mongodb
-
+    # Get all the companies from mongodb
     company = mongo.db.companies.find()
-
-    # Paginates the companies found
-
+    # Paginate the companies found
     paginatedCompanies = company[offset:offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='materialize')
@@ -65,22 +58,22 @@ def list_company():
         )
 
 
-# Registration page for new users
-# Code inspiration from CI tutor - 
-# https://www.youtube.com/watch?v=Sfkg3358Igc&feature=youtu.be
-
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
+    """
+    Registration page for new users
+    Code inspiration from CI tutor
+    https://www.youtube.com/watch?v=Sfkg3358Igc&feature=youtu.be
+    """
     if request.method == 'POST':
         current_user = \
-            mongo.db.users.find_one({'name': request.form.get('name'
-                                    ).lower()})
+            mongo.db.users.find_one({'name': request.form.get('name').lower()})
         if current_user:
             return redirect(url_for('registration'))
-
-        registration = {'name': request.form.get('name').lower(),
-                        'password': generate_password_hash(request.form.get('password'
-                        ))}
+        registration = {"name": request.form.get("name").lower(),
+                        "password": generate_password_hash(
+                        request.form.get("password"))
+                        }
         mongo.db.users.insert_one(registration)
 
         session['user'] = request.form.get('name').lower()
@@ -88,17 +81,16 @@ def registration():
     return render_template('registration.html')
 
 
-# User Log In
-# Code inspiration taken from Traversy Media
-# https://www.youtube.com/watch?v=QEMtSUxtUDY
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    User Log In
+    Code inspiration taken from Traversy Media
+    https://www.youtube.com/watch?v=QEMtSUxtUDY
+    """
     if request.method == 'POST':
-        current_user = \
-            mongo.db.users.find_one({'name': request.form.get('name'
-                                    ).lower()})
-
+        current_user = mongo.db.users.find_one(
+            {"name": request.form.get("name").lower()})
         if current_user:
             if check_password_hash(current_user['password'],
                                    request.form.get('password')):
@@ -109,21 +101,17 @@ def login():
             else:
                 flash('Incorrect Username or Password entered.')
         else:
-
-            flash('Incorrect Username or Password entered, please try again.'
-                  )
-
+            flash('Incorrect Username or Password entered, please try again.')
             # return redirect(url_for("login"))
-
     return render_template('login.html')
 
 
-# A check to tell the user if they are logged in or not
-# Code inspiration taken from Traversy Media
-# https://www.youtube.com/watch?v=QEMtSUxtUDY
-
 def is_logged_in(f):
-
+    """
+    A check to tell the user if they are logged in or not
+    Code inspiration taken from Traversy Media
+    https://www.youtube.com/watch?v=QEMtSUxtUDY
+    """
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'logged_in' in session:
@@ -134,19 +122,18 @@ def is_logged_in(f):
     return wrap
 
 
-# User Log Out
-
 @app.route('/logout')
 def logout():
+    # User Log Out
     session.clear()
     flash("You're now logged out!")
     return redirect(url_for('login'))
 
-# Add a new company
 
 @app.route('/add_company', methods=['GET', 'POST'])
 @is_logged_in
 def add_company():
+    # Add new company
     if request.method == 'POST':
         company = {
             'company_type': request.form.get('company_type'),
@@ -155,8 +142,7 @@ def add_company():
             'description': request.form.get('description'),
             'url': request.form.get('url'),
             'remote': request.form.get('remote'),
-            'level_of_positions': request.form.get('level_of_positions'
-                    ),
+            'level_of_positions': request.form.get('level_of_positions'),
             }
         mongo.db.companies.insert_one(company)
         flash('Company successfully added!')
@@ -167,13 +153,14 @@ def add_company():
                            company_type=company_type)
 
 
-# Search all companies and provide view of results
-# Allows a text search and/or radio button search
-# Pagination had to be removed due to complexity.
-# Still referenced due to the return render_template of all_companies_list.html
-
 @app.route('/search_company', methods=['GET', 'POST'])
 def search_company():
+    """
+    Search all companies and provide view of results
+    Allow a text search and/or radio button search
+    Pagination had to be removed due to complexity.
+    Still referenced due to the return of all_companies_list.html
+    """
     # Gather user search criteria from search_company.html
     query1 = request.form.get('company_query')
     query2 = request.form.get('remote_option')
@@ -190,14 +177,12 @@ def search_company():
     if query3 is not None:
         queryString = ''.join([queryString, ' "', query3, '"'])
     # Execute mongodb query based on compiled queryString
-    company = \
-        mongo.db.companies.find({'$text': {'$search': queryString}})
+    company = mongo.db.companies.find({"$text": {"$search": queryString}})
     # Show no results
     if company.count() == 0:
         flash('No results found. Please search again!')
 
     # Pagination override to remove from function
-
     page = 1
     per_page = 1000
     offset = (page - 1) * per_page
@@ -215,11 +200,10 @@ def search_company():
         )
 
 
-# Allows logged in user to edit companies already in the database
-
 @app.route('/edit_company/<company_id>', methods=['GET', 'POST'])
 @is_logged_in
 def edit_company(company_id):
+    # Allow logged in user to edit companies already in the database
     if request.method == 'POST':
         submit_company = {
             'company_type': request.form.get('company_type'),
@@ -228,8 +212,7 @@ def edit_company(company_id):
             'description': request.form.get('description'),
             'url': request.form.get('url'),
             'remote': request.form.get('remote'),
-            'level_of_positions': request.form.get('level_of_positions'
-                    ),
+            'level_of_positions': request.form.get('level_of_positions'),
             }
         mongo.db.companies.update({'_id': ObjectId(company_id)},
                                   submit_company)
@@ -241,11 +224,10 @@ def edit_company(company_id):
                            company_type=company_type)
 
 
-# Allows logged in users to delete companies already in the database
-
 @app.route('/delete_company/<company_id>')
 @is_logged_in
 def delete_company(company_id):
+    # Allow logged in users to delete companies already in the database
     mongo.db.companies.remove({'_id': ObjectId(company_id)})
     flash('Company deleted!')
     return redirect(url_for('list_company'))
