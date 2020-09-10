@@ -19,7 +19,6 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
 
-
 # Displays 4 most recently added companies on home page
 
 @app.route('/')
@@ -30,7 +29,8 @@ def show_company():
 
 
 # Displays all companies in collection in card format
-# Pagination is included
+# Pagination inspiration -
+# https://github.com/DarilliGames/flaskpaginate/blob/master/app.py
 
 @app.route('/list_company')
 def list_company():
@@ -66,6 +66,8 @@ def list_company():
 
 
 # Registration page for new users
+# Code inspiration from CI tutor - 
+# https://www.youtube.com/watch?v=Sfkg3358Igc&feature=youtu.be
 
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
@@ -140,8 +142,7 @@ def logout():
     flash("You're now logged out!")
     return redirect(url_for('login'))
 
-
-# Connects to company_type collection in MongoDB for dropdown options
+# Add a new company
 
 @app.route('/add_company', methods=['GET', 'POST'])
 @is_logged_in
@@ -167,24 +168,31 @@ def add_company():
 
 
 # Search all companies and provide view of results
-# Radio buttons
+# Allows a text search and/or radio button search
+# Pagination had to be removed due to complexity.
+# Still referenced due to the return render_template of all_companies_list.html
 
 @app.route('/search_company', methods=['GET', 'POST'])
 def search_company():
+    # Gather user search criteria from search_company.html
     query1 = request.form.get('company_query')
     query2 = request.form.get('remote_option')
     query3 = request.form.get('role_option')
+    # Initialise "queryString" and render search page on first visit
     if query1 is None:
         queryString = ''
         return render_template('search_companies.html')
     else:
         queryString = ''.join(['"', query1, '"'])
+    # Concatenate radio button responses to queryString
     if query2 is not None:
         queryString = ''.join([queryString, ' "', query2, '"'])
     if query3 is not None:
         queryString = ''.join([queryString, ' "', query3, '"'])
+    # Execute mongodb query based on compiled queryString
     company = \
         mongo.db.companies.find({'$text': {'$search': queryString}})
+    # Show no results
     if company.count() == 0:
         flash('No results found. Please search again!')
 
