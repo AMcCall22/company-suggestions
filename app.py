@@ -129,7 +129,7 @@ def is_logged_in(f):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash('Please log in to access here.')
+            flash('Please log in to add a new company.')
             return redirect(url_for('login'))
     return wrap
 
