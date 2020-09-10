@@ -147,6 +147,8 @@ Pagination within the search function proved too complex so a workaround was int
 
 #### Future Developments
 
+Backend code validation will be undertaken.
+
 **Registration/Login/Logout**
 
 Further functionality could be added here:
