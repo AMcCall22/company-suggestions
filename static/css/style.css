@@ -2,40 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 #heading {
-  color: #2877c6;
+    color: #2877c6;
     font-family: "Fjalla One", sans-serif;
 }
 
-
+/*---------------------------------------------- nav bar----*/
 .logo{
     margin-left: 2rem;
-}
-/*----------------------------------------------submit button----*/
-
-.button-style {
-  text-align: center;
-}
-/*---------------------------------------------- homepage cards----*/
-.card-container {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.card-heading{
-    font-family: "Fjalla One", sans-serif;
-    margin-top: 4rem;
-    
-}
-
-.card {
-  margin-top: 0rem;
-  text-align: center;
-  font-family: "Fjalla One", sans-serif;
-}
-
-
-.company-name {
-  color: #2877c6;
 }
 
 /*---------------------------------------------- homepage info and image----*/
@@ -64,6 +37,27 @@
   margin-bottom: 0rem;
 }
 
+/*---------------------------------------------- homepage cards----*/
+.card-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.card-heading{
+    font-family: "Fjalla One", sans-serif;
+    margin-top: 4rem;   
+}
+
+.card {
+  margin-top: 0rem;
+  text-align: center;
+  font-family: "Fjalla One", sans-serif;
+}
+
+.company-name {
+  color: #2877c6;
+}
+
 /*---------------------------------------------- companies list----*/
 .collection-list {
   font-family: "Fjalla One", sans-serif;
@@ -72,7 +66,6 @@
 
 .list-container {
   text-align: center;
-
 }
 
 .buttons {
@@ -84,39 +77,43 @@
     font-family: "Fjalla One", sans-serif;
 }
 
-.flash-message{
-    font-family: "Fjalla One", sans-serif;
-}
-
 .search-button{
     margin-top: 5rem;
 }
 
-
-
 .input-style{
     margin-top: 0;
-    
-    }
-
-.page-footer{
-    padding-top: 0;}
-
-.footer-container{
-    margin-bottom: 0;
 }
 
 .form-container{
     margin-bottom: 8rem;
 }
 
+.edit-delete-buttons{ 
+    margin-bottom: 4rem;
+}
 
+/*---------------------------------------------- pagination----*/
 .pagination li.active {
     background-color: #2877c6;
 }
 
-.edit-delete-buttons{ 
-    margin-bottom: 4rem;
+/*----------------------------------------------submit buttons----*/
+.button-style {
+  text-align: center;
+}
+
+/*---------------------------------------------- flash messages----*/
+.flash-message{
+    font-family: "Fjalla One", sans-serif;
+}
+
+/*---------------------------------------------- footer----*/
+.page-footer{
+    padding-top: 0;}
+
+.footer-container{
+    margin-bottom: 0;
 }
 
 /*---------------------------------------------- sticky footer----*/

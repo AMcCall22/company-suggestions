@@ -22,9 +22,9 @@
           required
         />
         <label for="name">Username</label>
+        <p class="username">(Minimum length, 8 characters. Maximum length, 20 characters)</p>
       </div>
     </div>
-    
     <!--password name -->
     <div class="row">
       <div class="input-field col s12">
@@ -39,8 +39,10 @@
           required
         />
         <label for="password">Password</label>
+        <p class="username">(Minimum length, 8 characters. Maximum length, 15 characters)</p>
       </div>
     </div>
+    <!--Register button-->
     <div class="button-style">
       <button class="btn waves-effect waves-light" type="submit">
         Register
@@ -48,10 +50,15 @@
     </div>
   </form>
 </div>
+<!--Registration Link-->
 <div class="row">
-    <div class="col s12">
-<p class="center-align">Already Registered?
-<a href="{{ url_for('login') }}">Login here to add, edit and delete companies to the collection!</a></p>
-</div>
+  <div class="col s12">
+    <p class="center-align">
+      Already Registered?
+      <a href="{{ url_for('login') }}"
+        >Login here to add, edit and delete companies to the collection!</a
+      >
+    </p>
+  </div>
 </div>
 {% endblock %}
