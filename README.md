@@ -2,7 +2,7 @@
 
 
 
-## Milestone 3 project - Data Centric Development
+## Milestone 3 Project - Data Centric Development
 
 This website has been designed to provide a repository  to share and view companies that offer web developers/software engineer roles.  This will be a useful, collaborative tool to centrally collate companies that regularly offer opportunities. 
 
@@ -42,7 +42,7 @@ Link to [Wireframes](/README_Files/MS3_Wireframes.pdf)
 
 ##### 
 
-#### Features
+##### Features
 
 Materialize 1.0.0 was used as the basis of the design to provide a modern and standardised layout throughout the site.
 
@@ -80,13 +80,13 @@ Radio buttons were introduced allowing users to search on a combination of the f
 
 A 'submit button' performs the required search and a 'clear button' resets the search form.
 
-A flash message appears in no results have been found as per the search parameters.
+A flash message appears if no results have been found as per the search parameters.
 
 
 
 ##### Add Company
 
-This form allows users to add new companies to the database. Fields are as following:
+This form allows users to add new companies to the database. Fields are as follows:
 
 - Company type - a drop down option of Sole business or agency. 
 
@@ -108,7 +108,7 @@ A simple form for users that are already registered to log in to the site. This 
 
 ##### Registration
 
-A simple form for users to register with the site. A username (minimum length, 8 char and max length, 20 char) and password (minimum length, 8 char and max length, 15 char) are required to be set up.  Passwords are verified using the password_hash functionality within flask. 
+A simple form for users to register with the site. A username (minimum length, 8 char and max length, 20 char) and password (minimum length, 8 char and max length, 15 char) are required to be set up.  Passwords are verified using the password_hash functionality within Flask. 
 
 ##### Log Out
 
@@ -145,11 +145,11 @@ Please find a separate file detailing the testing undertaken here:
 
 #### Issues faced and resolved
 
-The search functionality originally used checkboxes but the logic for combining these with a text search proved too complex at this stage. Therefore, radio buttons were introduced in order that  only 1 selection from the remote working dropdown list or 1 selection from the level of opportunities dropdown could be used during a search. 
+The search functionality originally used checkboxes but the logic for combining these with a text search proved too complex at this stage. Therefore, radio buttons were introduced in order that  only 1 selection from the remote working dropdown list or 1 selection from the level of opportunities dropdown could be used during a search. These can be used combined with a keyword search.
 
-Pagination within the search function proved too complex so a workaround was introduced. This was necessary because the function calls the all_companies_list.html as a results page, and this html document has pagination embedded within it. Therefore, I increased the limit of the search results per page to 1000, which avoids the need for the function to call the pagination logic (unless the results were > 1000)
+Pagination within the search function proved too complex so a workaround was introduced. This was necessary because the function calls the all_companies_list.html as a results page, and this html document has pagination embedded within it. Therefore, I increased the limit of the search results per page to 1000, which avoids the need for the function to call the pagination logic (unless the results were > 1000). This will be reviewed in the future.
 
-#### Future Developments
+##### Future Developments
 
 **Registration/Login/Logout**
 
@@ -170,7 +170,7 @@ Pagination logic to be reviewed and added
 
 
 
-#### Deployment 
+##### Deployment 
 
 #### Heroku
 
@@ -180,11 +180,11 @@ Pagination logic to be reviewed and added
 
    Procfile signifies to Heroku which files run the app and also how to run the app. Create the file using eco web: python app.py > Procfile
 
-2. Add, commit and push the above files to Github. 
+2. Add, commit and push the above files to GitHub. 
 
 3. Create a new app on Heroku by selecting 'New.'  Give a unique name to it and choose Europe as the region.
 
-4. Select Deploy menu and within Deployment method, select GitHub.  Ensure the correct Github repository is linked to the app.
+4. Select Deploy menu and within Deployment method, select GitHub.  Ensure the correct GitHub repository is linked to the app.
 
 5. Within settings, select Reveal Config Vars and set the IP address to 0.0.0.0 and PORT of 5000. Paste the Mongo_URI and Secret Key.
 
@@ -213,11 +213,11 @@ Pagination logic to be reviewed and added
 
 ###### **General**
 
-https://www.w3schools.com/
+W3 Schools - https://www.w3schools.com/
 
-traversy media
+Traversy Media - https://www.traversymedia.com/
 
-pretty printed
+Pretty Printed - https://prettyprinted.com/
 
 ###### Pagination
 
