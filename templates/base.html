@@ -46,12 +46,8 @@
       <div class="navbar-fixed">
         <nav class="red darken-3">
           <div class="nav-wrapper">
-            <a href="{{ url_for('show_company') }}" class="brand-logo logo"
-              >CodeScan</a
-            >
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-              ><i class="fas fa-bars"></i
-            ></a>
+            <a href="{{ url_for('show_company') }}" class="brand-logo logo">CodeScan</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
               {% if session.logged_in %}
               <li><a href="{{ url_for('show_company') }}">Home</a></li>
@@ -87,7 +83,6 @@
         {% endif %}
       </ul>
     </header>
-
     <section>
       <!--flash messages -->
       {% with messages = get_flashed_messages() %} {% if messages %} {% for
@@ -124,8 +119,7 @@
               <li class="list-inline-item social-links">
                 <a
                   href="https://www.linkedin.com/in/alisonmccallum/"
-                  target="_blank"
-                >
+                  target="_blank">
                   <i class="fab fa-linkedin white-text" aria-hidden="true"></i>
                   <span class="sr-only">LinkedIn</span>
                 </a>
@@ -136,7 +130,7 @@
       </div>
       <div class="footer-copyright">
         <div class="container">
-          © 2020 Copyright Text
+          © 2020 For Educational Purposes
         </div>
       </div>
     </footer>

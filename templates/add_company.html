@@ -13,14 +13,10 @@
         <select id="company_type" name="company_type" class="validate" required>
           <option value="" disabled selected>Select type</option>
           {% for company in company_type %}
-          <option value="{{ company.company_type }}"
-            >{{ company.company_type }}</option
-          >
+          <option value="{{ company.company_type }}">{{ company.company_type }}</option>
           {% endfor %}
         </select>
-        <label for="company_type" data-error="wrong" data-success="right"
-          >Company Type</label
-        >
+        <label for="company_type" data-error="wrong" data-success="right">Company Type</label>
       </div>
     </div>
     <!--company name input -->
@@ -30,11 +26,9 @@
           id="company_name"
           name="company_name"
           class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="company_name" data-error="wrong" data-success="right"
-          >Company Name</label
-        >
+          required>
+        </textarea>
+        <label for="company_name" data-error="wrong" data-success="right">Company Name</label>
       </div>
     </div>
  <!--company sector input -->
@@ -44,11 +38,9 @@
           id="sector"
           name="sector"
           class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="sector" data-error="wrong" data-success="right"
-          >Sector</label
-        >
+          required>
+        </textarea>
+        <label for="sector" data-error="wrong" data-success="right">Sector</label>
       </div>
     </div>
     <!--company description -->
@@ -59,11 +51,9 @@
           name="description"
           maxlength="45"
           class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="description" data-error="wrong" data-success="right"
-          >Short Description</label
-        >
+          required>
+        </textarea>
+        <label for="description" data-error="wrong" data-success="right">Short Description</label>
       </div>
     </div>
     <!--company website -->
@@ -82,9 +72,7 @@
           <option value="No">No</option>
           <option value="Sometimes">Sometimes</option>
         </select>
-        <label for="remote" data-error="wrong" data-success="right"
-          >Remote Working</label
-        >
+        <label for="remote" data-error="wrong" data-success="right">Remote Working</label>
       </div>
     </div>
     <!-- level of roles dropdown options-->
@@ -101,9 +89,7 @@
       </div>
     </div>
     <div class="button-style">
-      <button class="btn waves-effect waves-light buttons" type="submit">
-        Submit Company
-      </button>
+      <button class="btn waves-effect waves-light buttons" type="submit">Submit Company</button>
     </div>
   </form>
 </div>
